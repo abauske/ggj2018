@@ -21,7 +21,7 @@ public class Knotenspawn : MonoBehaviour
 
     public float spawnTime;
 
-    private static float maxDistance = 1;
+    private static float maxDistance = 5;
 
     private GameObject[] nodes;
 
@@ -52,15 +52,20 @@ public class Knotenspawn : MonoBehaviour
 
             foreach (GameObject go in nodes)
             {
+                bool nosuc = true;
                 if (GiveDistance(go, ranX, ranY) < minDistance)
                 {
                     if (counter == 3)
                         maxDistance = maxDistance * increasment;
 
                     counter++;
-                    break;
+                    nosuc = false;
                 }
+                if (!nosuc)
+                    break;
 
+
+                counter = 0;
                 succes = true;
             }
         }
