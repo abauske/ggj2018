@@ -23,12 +23,11 @@ public class SynapseDrag : MonoBehaviour
         line.SetPosition(0, new Vector2(0, 0));
         line.SetPosition(1, currentPos - dragStart);
         line.gameObject.SetActive(true);
-        line.positionCount = 200;
+        line.positionCount = 2;
 
         var hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
         if (hit.transform)
         {
-            Debug.Log("transform");
             var knot = hit.transform.GetComponent<Knot>();
             if (knot)
             {
@@ -54,7 +53,6 @@ public class SynapseDrag : MonoBehaviour
     // Use this for initialization
 	void Start ()
 	{
-	    Debug.Log("start");
     }
 	
 	// Update is called once per frame
