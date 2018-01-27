@@ -135,5 +135,26 @@ public class NodeDataSpawner : Node
         }
     }
 
+    public void MoveDataOnce(List<IGraphSearch> path, Data_Script d)
+    {
+        Vector3 ownCoords = transform.transform.position;
+        Vector3 connCoords = path[0].connection.AccessibleNode.transform.transform.position;
+
+        Vector3 way = connCoords - ownCoords;
+        d.gameObject.AddComponent<MovementController>();
+        d.gameObject.GetComponent<MovementController>().way = way;
+
+        float multiplyer = path[0].CurrentNode.GetComponent<DefaultSynapse>().speedMultiplier;
+
+        d.gameObject.GetComponent<MovementController>().speed = path[0].connection.Weight / (4*multiplyer);
+
+        
+        
+        
+        
+
+
+    }
+
     
 }
