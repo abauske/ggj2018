@@ -122,7 +122,8 @@ public class NodeDataSpawner : Node
                 {
                     money.GetComponent<MoneyScript>().AddMoney(10);
                 }
-                Destroy(d.gameObject);
+                MoveDataOnce(path, d);
+                //Destroy(d.gameObject);
                 removeData(d);
             }
             else if (path.Count > 1)
@@ -133,6 +134,29 @@ public class NodeDataSpawner : Node
                 }
             }
         }
+    }
+
+    public void MoveDataOnce(List<IGraphSearch> path, Data_Script d)
+    {
+        Vector3 ownCoords = transform.transform.position;
+        Vector3 connCoords = path[1].connection.AccessibleNode.transform.transform.position;
+
+        Vector3 way = connCoords - ownCoords;
+        d.gameObject.AddComponent<MovementController>();
+        d.gameObject.GetComponent<MovementController>().way = way;
+
+        d.gameObject.GetComponent<MovementController>().finish = connCoords;
+
+        float multiplyer = path[1].CurrentNode.GetComponent<DefaultSynapse>().speedMultiplier;
+
+        d.gameObject.GetComponent<MovementController>().speed = path[0].connection.Weight / (4*multiplyer);
+
+        
+        
+        
+        
+
+
     }
 
     
