@@ -9,8 +9,7 @@ public class NodeDataSpawner : Node
     private List<Data_Script> daten = new List<Data_Script>();
     private int lostDataCount = 6;
     public int spawnSpeed = 10;
-
-    private int Vectorlength = 1;
+    private double Vectorlength = 0.5;
     private int counter = 0;
     private float spawnTime;
     public float spawnIntervall = 6;
@@ -18,9 +17,9 @@ public class NodeDataSpawner : Node
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (daten.Count > lostDataCount)
+        if (daten.Count >= lostDataCount)
         {
-            //Game end.
+            
         }
         else
         {
@@ -33,31 +32,15 @@ public class NodeDataSpawner : Node
                 {
                     s = (Shape) Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
                 } while (s == shape);
-                 
 
-                float x = this.transform.position.x;
-                float y = this.transform.position.y;
-
-                float winkel = 360 / lostDataCount;
-                winkel *= daten.Count;
-
-                y += Vectorlength * (float) System.Math.Sin(winkel);
-                x += Vectorlength * (float)System.Math.Cos(winkel);
-
-
-                GameObject dataObject = Instantiate(dataPrefab, new Vector2(x,y), new Quaternion(0, 0, 0, 0), this.transform);
+                GameObject dataObject = Instantiate(dataPrefab, this.transform.position, new Quaternion(0, 0, 0, 0), this.transform);
 
                 dataObject.SetActive(true);
                 var d = dataObject.GetComponent<Data_Script>();
-                // d.transform.SetParent(this.transform);
                 d.setShape(s);
-//                dataObject.transform.SetParent(this.transform);
-//                dataObject.transform.position = transform.position + Vector3.down;
-//                dataObject.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                 addData(d);
                 
-
-
+                
                 if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
                 {
                     spawnIntervall = spawnIntervall * Random.Range(0.98f, 0.99f);
@@ -68,35 +51,71 @@ public class NodeDataSpawner : Node
         this.trySendData();
     }
 
-    public void addData(Data_Script data)
+    
+    public Vector3 arangeData(float i)
     {
-        daten.Add(data);
-        gameObject.transform.position = this.transform.position;
+        float x = 0;
+        float y = 0;
+
+        float winkel = (float) (2 * System.Math.PI) / lostDataCount;
+      
+        winkel = winkel * (float)(i) ;
+        
+
+        x = (float)(Vectorlength * (System.Math.Cos(winkel)));
+        y = (float)(Vectorlength * (System.Math.Sin(winkel)));
+        
+        return new Vector3(x,y,0);
+    }
+
+    public void rearangeData()
+    {
+        int i = 0;
+        foreach (Data_Script d in daten)
+        {
+            d.transform.position = this.transform.position + arangeData(i);
+            i++;
+        }
+
+    }
+
+    public void addData(Data_Script newData)
+    {
+        daten.Add(newData);
+        rearangeData();
+    }
+
+    public void removeData(Data_Script data)
+    {
+        daten.Remove(data);
+        rearangeData();
     }
 
     private void trySendData()
     {
-        daten.RemoveAll(d =>
+        for(int i = daten.Count - 1; i >= 0; i--)
         {
+            var d = daten[i];
             var path = getShortestPathTo(d.shape);
             if (path == null)
             {
-                return false;
+                break;
             }
 
             if (path.Count == 1)
             {
                 Debug.Log("destination reached");
                 Destroy(d.gameObject);
-                return true;
+                removeData(d);
             }
             else if (path.Count > 1)
             {
-                return path[1].connection.transferData(d);
+                if(path[1].connection.transferData(d))
+                {
+                    removeData(d);
+                }
             }
-
-            return false;
-        });
+        }
     }
 
     
