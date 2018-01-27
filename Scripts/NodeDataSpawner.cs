@@ -12,7 +12,7 @@ public class NodeDataSpawner : Node
 
     private int counter = 0;
     private float spawnTime;
-    public float spawnIntervall = 4;
+    public float spawnIntervall = 6;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -46,7 +46,7 @@ public class NodeDataSpawner : Node
                 }
             }
         }
-//        this.trySendData();
+        this.trySendData();
     }
 
     public void addData(Data_Script data)
@@ -57,26 +57,27 @@ public class NodeDataSpawner : Node
 
     private void trySendData()
     {
-        foreach (var d in daten)
+        daten.RemoveAll(d =>
         {
             var path = getShortestPathTo(d.shape);
             if (path == null)
             {
-                return; 
+                return false;
             }
+
             if (path.Count == 1)
             {
+                Debug.Log("destination reached");
                 Destroy(d.gameObject);
+                return true;
             }
             else if (path.Count > 1)
             {
-                bool removed = path[1].connection.transferData(d);
-                if (removed)
-                {
-                    daten.Remove(d);
-                }
+                return path[1].connection.transferData(d);
             }
-        }
+
+            return false;
+        });
     }
 
     

@@ -28,7 +28,7 @@ public class GraphSearch : IGraphSearch {
 
         foreach (var con in CurrentNode.getConnections())
         {
-            var reach = reachable.Find(r => r.CurrentNode == con.AccessibleNode);
+            var existing = reachable.Find(r => r.CurrentNode == con.AccessibleNode);
             var searchObject = new GraphSearch
             {
                 PathLength = PathLength + con.Weight,
@@ -36,12 +36,12 @@ public class GraphSearch : IGraphSearch {
                 Predecessor = this,
                 connection = con
             };
-            if (reach != null)
+            if (existing == null)
             {
                 reachable.Add(searchObject);
-            } else if (reach.PathLength > PathLength + con.Weight)
+            } else if (existing.PathLength > PathLength + con.Weight)
             {
-                var index = reachable.IndexOf(reach);
+                var index = reachable.IndexOf(existing);
                 if (index >= 0)
                 {
                     reachable[index] = searchObject;
