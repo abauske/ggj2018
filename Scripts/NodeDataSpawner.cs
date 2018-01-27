@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class NodeDataSpawner : Node
 {
-    public Sprite NodeType1;
-    public Sprite NodeType2;
-    public Sprite NodeType3;
+    public Sprite TriangleImg;
+    public Sprite SqareImg;
+    public Sprite CircleImg;
 
     private List<Data_Script> daten = new List<Data_Script>();
     private int lostDataCount = 6;
@@ -81,13 +81,13 @@ public class NodeDataSpawner : Node
         switch (shape)
         {
             case Shape.TRIANGLE:
-                this.GetComponent<Image>().sprite = NodeType1; // Dreieck
+                this.GetComponent<Image>().sprite = TriangleImg; // Dreieck
                 break;
             case Shape.SQUARE:
-                this.GetComponent<Image>().sprite = NodeType2; //Viereck
+                this.GetComponent<Image>().sprite = SqareImg; //Viereck
                 break;
             case Shape.CIRCLE:
-                this.GetComponent<Image>().sprite = NodeType3; //Kreis
+                this.GetComponent<Image>().sprite = CircleImg; //Kreis
                 break;
 
             default: break;
