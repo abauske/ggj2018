@@ -56,7 +56,7 @@ public class Knotenspawn : MonoBehaviour
             foreach (GameObject go in nodes)
             {
                 
-                bool nosuc = true;
+                
                 
                 if(Vector2.Distance(go.transform.transform.position, new Vector2(ranX, ranY)) < minDistance)
                 {
@@ -70,17 +70,16 @@ public class Knotenspawn : MonoBehaviour
 
 
                     counter++;
-                    nosuc = false;
+                    
                     break;
                 }
-                //if (!nosuc)
-                  //  break;
+                
 
 
                 
                 success = true;
             }
-            //counter = 0;
+            
         }
 
         Vector2 pos = new Vector2(ranX, ranY);
