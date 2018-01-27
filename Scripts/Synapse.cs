@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Synapse : MonoBehaviour, ISynapseConnection {
+public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
 
     public Node AccessibleNode
@@ -17,9 +17,13 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
 
     private LineRenderer line;
 
+    protected float lastTransmissionStart;
+
     // Use this for initialization
-    void Start ()
+    public void Start ()
     {
+        lastTransmissionStart = Time.time;
+
         line = gameObject.AddComponent<LineRenderer>();
         drawConnection();
 
@@ -39,19 +43,24 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
         line.positionCount = 2;
         line.SetPosition(0, from.transform.position);
         line.SetPosition(1, to.transform.position);
-        line.startColor = Color.black;
-        line.endColor = Color.black;
+        line.startColor = Color.white;
+        line.endColor = Color.white;
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;
-        line.material.color = Color.black;
+        line.material.color = Color.white;
         line.numCornerVertices = 10;
     }
 
     public bool transferData(Data_Script data)
     {
-        Debug.Log("transfered");
-        var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
-        destination.addData(data);
-        return true;
+        if (this.canTransfer(data.shape))
+        {
+            lastTransmissionStart = Time.time;
+            var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
+            destination.addData(data);
+            return true;
+        }
+        return false;
     }
+    public abstract bool canTransfer(Shape data);
 }

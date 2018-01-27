@@ -34,11 +34,11 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1058"
+     inkscape:window-height="1018"
      id="namedview13"
      showgrid="false"
      inkscape:zoom="0.94608139"
-     inkscape:cx="194.71192"
+     inkscape:cx="-36.240726"
      inkscape:cy="259.18505"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -56,7 +56,9 @@
      ry="29.896235"
      x="0"
      y="0"
-     style="fill:#6b6d76" /><rect
+     style="fill:#6b6d76"
+     inkscape:export-xdpi="12.315093"
+     inkscape:export-ydpi="12.315093" /><rect
      x="63.400002"
      y="91.799995"
      class="st1"
@@ -64,7 +66,7 @@
      height="54.599998"
      id="rect6"
      ry="10.790514"
-     style="fill:#d1d1d1;stroke-width:1.03877401" /><rect
+     style="fill:#ffffff;stroke-width:1.03877401" /><rect
      x="56.299999"
      y="348.5"
      class="st1"
@@ -72,7 +74,7 @@
      height="54.599998"
      id="rect8"
      ry="10.790514"
-     style="fill:#d1d1d1;stroke-width:1.03877401" /><rect
+     style="fill:#ffffff;stroke-width:1.03877401" /><rect
      x="61.799999"
      y="220.10001"
      class="st1"
@@ -80,4 +82,4 @@
      height="54.599998"
      id="rect10"
      ry="10.790514"
-     style="fill:#d1d1d1;stroke-width:1.03877401" /></svg>
+     style="fill:#ffffff;stroke-width:1.03877401" /></svg>
