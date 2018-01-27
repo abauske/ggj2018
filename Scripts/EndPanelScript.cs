@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EndPanelScript : MonoBehaviour {
     
-    public int score;
+    public float score;
 
     private Text endText;
     private GameObject endPanel;
@@ -14,17 +14,18 @@ public class EndPanelScript : MonoBehaviour {
     public void endGame()
     {
         endText = GetComponentInChildren<Text>();
+        var scoreObj = GameObject.FindGameObjectWithTag("HighScore");
+
+        if (endText != null && scoreObj != null && scoreObj.GetComponent<SetHighScore>() != null)
+        {
+            score = scoreObj.GetComponent<SetHighScore>().score;
+        }
         var darkage = GetComponent<Image>();
         darkage.enabled = true;
         menuPanel = GameObject.FindGameObjectWithTag("barPanel");
         if (menuPanel != null)
         {
             menuPanel.SetActive(false);
-        }
-
-        if (endText != null)
-        {
-            endText.text = string.Format("You lost!\nYour score:\n{0:00000}", score);
         }
 
         for (int i = 0; i < transform.childCount; i++)
