@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class NodeDataSpawner : Node
 {
-    public Sprite TriangleImg;
-    public Sprite SqareImg;
-    public Sprite CircleImg;
-
     private List<Data_Script> daten = new List<Data_Script>();
     private int lostDataCount = 6;
     public int spawnSpeed = 10;
@@ -30,13 +26,14 @@ public class NodeDataSpawner : Node
             {
                 spawnTime = Time.time + spawnIntervall;
                 counter += 1;
-                int i = (int) Random.Range(1.0f, (float) System.Enum.GetNames(typeof(Shape)).Length);
+                int i = Random.Range(0,  System.Enum.GetNames(typeof(Shape)).Length);
 
                 GameObject dataObject = new GameObject();
                 dataObject.AddComponent<Image>();
                 Data_Script d = dataObject.AddComponent<Data_Script>();
                 d.setShape((Shape) i);
                 addData(d);
+                d.setParent(this.gameObject);
 
 
                 if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
@@ -75,22 +72,5 @@ public class NodeDataSpawner : Node
         }
     }
 
-    public void setShape(Shape s)
-    {
-        shape = s;
-        switch (shape)
-        {
-            case Shape.TRIANGLE:
-                this.GetComponent<Image>().sprite = TriangleImg; // Dreieck
-                break;
-            case Shape.SQUARE:
-                this.GetComponent<Image>().sprite = SqareImg; //Viereck
-                break;
-            case Shape.CIRCLE:
-                this.GetComponent<Image>().sprite = CircleImg; //Kreis
-                break;
-
-            default: break;
-        }
-    }
+    
 }

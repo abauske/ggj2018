@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
+    public Sprite NodeType1;
+    public Sprite NodeType2;
+    public Sprite NodeType3;
 
-    public Shape shape;
+    internal Shape shape;
 
     protected List<ISynapseConnection> Connections = new List<ISynapseConnection>();
 
@@ -39,5 +43,24 @@ public class Node : MonoBehaviour
     public List<ISynapseConnection> getConnections()
     {
         return this.Connections;
+    }
+
+    public void setShape(Shape s)
+    {
+        shape = s;
+        switch (shape)
+        {
+            case Shape.TRIANGLE:
+                this.GetComponent<Image>().sprite = NodeType1; // Dreieck
+                break;
+            case Shape.SQUARE:
+                this.GetComponent<Image>().sprite = NodeType2; //Viereck
+                break;
+            case Shape.CIRCLE:
+                this.GetComponent<Image>().sprite = NodeType3; //Kreis
+                break;
+
+            default: break;
+        }
     }
 }

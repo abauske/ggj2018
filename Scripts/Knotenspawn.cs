@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Knotenspawn : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class Knotenspawn : MonoBehaviour
     public float increasment = 1.1f;
     public string nodeTag;
 
-    public GameObject triangle;
-    public GameObject circle;
-    public GameObject square;
+    public GameObject node;
+
+    
 
     public float minDistance;
 
@@ -22,6 +23,9 @@ public class Knotenspawn : MonoBehaviour
     private static float maxDistance = 2;
 
     private GameObject[] nodes;
+
+
+
 
     private void Start()
     {
@@ -46,10 +50,12 @@ public class Knotenspawn : MonoBehaviour
 
             nodes = GameObject.FindGameObjectsWithTag(nodeTag);
 
+            
+
             foreach (GameObject go in nodes)
             {
                 
-                bool nosuc = true;
+                
                 
                 if(Vector2.Distance(go.transform.transform.position, new Vector2(ranX, ranY)) < minDistance)
                 {
@@ -60,36 +66,34 @@ public class Knotenspawn : MonoBehaviour
                         counter = 0;
                     }
                         
+
+
                     counter++;
-                    nosuc = false;
+                    
                     break;
                 }
-                //if (!nosuc)
-                  //  break;
+                
 
+
+                
                 success = true;
             }
-            //counter = 0;
+            
         }
 
         Vector2 pos = new Vector2(ranX, ranY);
 
-        int number = Random.Range(0, 3);
+        
+        int i = Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
 
+        GameObject newNode = Instantiate(node, pos, new Quaternion(0, 0, 0, 0));
+        newNode.AddComponent<Image>();
+        NodeDataSpawner spawner = newNode.AddComponent<NodeDataSpawner>();
+        spawner.setShape((Shape)i);
 
-        switch (number)
-        {
-            case 0:
-                Instantiate(triangle, pos, new Quaternion(0, 0, 0, 0));
-                break;
-            case 1:
-                Instantiate(circle, pos, new Quaternion(0, 0, 0, 0));
-                break;
-            case 2:
-                Instantiate(square, pos, new Quaternion(0, 0, 0, 0));
-                break;
+        
 
-        }
+        
 
     }
 
