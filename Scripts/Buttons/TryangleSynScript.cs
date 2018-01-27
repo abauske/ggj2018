@@ -1,13 +1,25 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SynapseDrag : MonoBehaviour
+public class TryangleSynScript : MonoBehaviour
 {
-    public LineRenderer line;
 
-    public Synapse s;
+    //private SingleShapeSynapse syn;
+
+    //public void Start()
+    //{
+
+    //    syn = new SingleShapeSynapse();
+    //    syn.transferable = Shape.TRIANGLE;
+    //    syn.
+    //    syn.Start();
+
+
+    //}
+
+    public LineRenderer line;
 
     private Vector3 dragStart;
     private Node destination;
@@ -43,34 +55,23 @@ public class SynapseDrag : MonoBehaviour
     {
         if (destination)
         {
-            var synapseGameObject = new GameObject("synapse");
-
-            if (s is DefaultSynapse)
-            {
-                var synapse = synapseGameObject.AddComponent<DefaultSynapse>();
-                synapse.from = gameObject.GetComponent<Node>();
-                synapse.to = destination;
-            }
-            else if (s is SingleShapeSynapse)
-            {
-                var synapse = synapseGameObject.AddComponent<SingleShapeSynapse>();
-                synapse.from = gameObject.GetComponent<Node>();
-                synapse.to = destination;
-            }
-
-
+            var synapseGameObject = new GameObject("singleShapeSynapse");
+            var synapse = synapseGameObject.AddComponent<SingleShapeSynapse>();
+            synapse.transferable = Shape.TRIANGLE;
+            synapse.from = gameObject.GetComponent<Node>();
+            synapse.to = destination;
         }
 
         line.gameObject.SetActive(false);
     }
 
     // Use this for initialization
-	void Start ()
-	{
+    void Start()
+    {
     }
-	
-	// Update is called once per frame
-	void Update ()
-	{
+
+    // Update is called once per frame
+    void Update()
+    {
     }
 }
