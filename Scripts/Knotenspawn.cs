@@ -24,7 +24,7 @@ public class Knotenspawn : MonoBehaviour
 
     private GameObject[] nodes;
 
-
+    public Camera cam;
 
 
     private void Start()
@@ -32,6 +32,17 @@ public class Knotenspawn : MonoBehaviour
         //Spawn immer nach spawntime ausführen
 
         InvokeRepeating("Spawn", spawnTime, spawnTime);
+
+        //cam = Camera.current;
+
+        cam.orthographic = true;
+
+
+        //cam.fieldOfView *= increasment;
+        //cam.rect.size = cam.rect.size;
+        //Vector2 a = cam.rect.size;
+        //a = increasment * a;
+        //cam.rect.size.Set(a.x, a.y);
     }
 
     private void Spawn()
@@ -49,7 +60,6 @@ public class Knotenspawn : MonoBehaviour
             ranY = Random.Range(-1 * (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))), (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))));
 
             nodes = GameObject.FindGameObjectsWithTag(nodeTag);
-
             
 
             foreach (GameObject go in nodes)
@@ -61,6 +71,14 @@ public class Knotenspawn : MonoBehaviour
                     if (counter == 10)
                     {
                         maxDistance = maxDistance * increasment;
+
+                        cam.orthographicSize = (increasment * maxDistance) + 3;
+                        //cam.orthographicSize = cam.orthographicSize * 1.02f;
+
+                        //cam.orthographicSize = cam.orthographicSize * (1+((1f - increasment)*0.25f));
+                        
+                        //float test = cam.orthographicSize;
+
                         counter = 0;
                     }
                         
@@ -71,6 +89,8 @@ public class Knotenspawn : MonoBehaviour
                     break;
                 }
               
+
+
                 success = true;
             }
             

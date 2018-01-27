@@ -26,7 +26,6 @@ public class Node : MonoBehaviour
 
     public List<IGraphSearch> getShortestPathTo(Shape shape)
     {
-        var searchTree = new List<IGraphSearch>();
         var thisNode = new GraphSearch {CurrentNode = this, PathLength = 0, Predecessor = null, Visited = true};
 
         if (shape == this.shape)

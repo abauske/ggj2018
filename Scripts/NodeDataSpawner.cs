@@ -28,7 +28,12 @@ public class NodeDataSpawner : Node
             {
                 spawnTime = Time.time + spawnIntervall;
                 counter += 1;
-                int i = Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
+                Shape s;
+                do
+                {
+                    s = (Shape) Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
+                } while (s == shape);
+                 
 
                 float x = this.transform.position.x;
                 float y = this.transform.position.y;
@@ -44,8 +49,11 @@ public class NodeDataSpawner : Node
 
                 dataObject.SetActive(true);
                 var d = dataObject.GetComponent<Data_Script>();
-                d.setShape((Shape) i);
                 // d.transform.SetParent(this.transform);
+                d.setShape(s);
+//                dataObject.transform.SetParent(this.transform);
+//                dataObject.transform.position = transform.position + Vector3.down;
+//                dataObject.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                 addData(d);
                 
 
