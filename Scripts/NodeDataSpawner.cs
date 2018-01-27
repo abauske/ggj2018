@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class NodeDataSpawner : Node
 {
-    
-    
-
+    public GameObject dataPrefab;
     private List<GameObject> daten;
     private int lostDataCount = 6;
     public int spawnSpeed = 10;
@@ -37,11 +35,12 @@ public class NodeDataSpawner : Node
                 counter += 1;
                 int i = Random.Range(0,  System.Enum.GetNames(typeof(Shape)).Length);
 
-                GameObject dataObject = new GameObject();
-                dataObject.AddComponent<Image>();
-                Data_Script d = dataObject.AddComponent<Data_Script>();
+                GameObject dataObject = Instantiate(dataPrefab, this.transform.position, new Quaternion(0, 0, 0, 0), this.transform);
+
+                dataObject.SetActive(true);
+                var d = dataObject.GetComponent<Data_Script>();
                 d.setShape((Shape) i);
-                d.transform.parent = this.transform;
+                // d.transform.SetParent(this.transform);
                 
                 daten.Add(dataObject);
                 dataObject.transform.position = this.transform.position;

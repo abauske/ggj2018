@@ -24,13 +24,13 @@ public class Data_Script : MonoBehaviour
         switch (shape)
         {
             case Shape.TRIANGLE:
-                this.GetComponent<Image>().sprite = ImageDreieck; // Dreieck
+                this.GetComponent<SpriteRenderer>().sprite = ImageDreieck; // Dreieck
                 break;
             case Shape.SQUARE:
-                this.GetComponent<Image>().sprite = ImageViereck; //Viereck
+                this.GetComponent<SpriteRenderer>().sprite = ImageViereck; //Viereck
                 break;
             case Shape.CIRCLE:
-                this.GetComponent<Image>().sprite = ImageKreis; //Kreis
+                this.GetComponent<SpriteRenderer>().sprite = ImageKreis; //Kreis
                 break;
 
             default: break;
