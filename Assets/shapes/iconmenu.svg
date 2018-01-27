@@ -23,7 +23,7 @@
    inkscape:export-ydpi="12.315093"><metadata
      id="metadata17"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs15" /><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -34,12 +34,12 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1058"
+     inkscape:window-height="1018"
      id="namedview13"
      showgrid="false"
-     inkscape:zoom="2.6759222"
-     inkscape:cx="165.32734"
-     inkscape:cy="250.3253"
+     inkscape:zoom="10.703689"
+     inkscape:cx="248.46377"
+     inkscape:cy="259.36171"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -66,6 +66,6 @@
      height="9.2624254"
      id="rect8"
      ry="0.90661764"
-     style="fill:#d1d1d1;stroke-width:0.3932589"
+     style="fill:#ffffff;stroke-width:0.3932589"
      inkscape:export-xdpi="576"
      inkscape:export-ydpi="576" /></svg>
