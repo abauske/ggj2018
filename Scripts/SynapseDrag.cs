@@ -8,7 +8,7 @@ public class SynapseDrag : MonoBehaviour
     public LineRenderer line;
 
     private Vector3 dragStart;
-    private Knot destination;
+    private Node destination;
 
     void OnMouseDown()
     {
@@ -28,11 +28,11 @@ public class SynapseDrag : MonoBehaviour
         var hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
         if (hit.transform)
         {
-            var knot = hit.transform.GetComponent<Knot>();
-            if (knot)
+            var node = hit.transform.GetComponent<Node>();
+            if (node)
             {
                 line.SetPosition(1, hit.transform.gameObject.transform.position - dragStart);
-                destination = knot;
+                destination = node;
             }
         }
     }
@@ -43,7 +43,7 @@ public class SynapseDrag : MonoBehaviour
         {
             var synapseGameObject = new GameObject("synapse");
             var synapse = synapseGameObject.AddComponent<Synapse>();
-            synapse.from = gameObject.GetComponent<Knot>();
+            synapse.from = gameObject.GetComponent<Node>();
             synapse.to = destination;
         }
 
