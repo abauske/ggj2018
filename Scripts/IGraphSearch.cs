@@ -9,6 +9,7 @@ public interface IGraphSearch
     float PathLength { get; set; }
     Node CurrentNode { get; set; }
     Boolean Visited { get; set; }
+    ISynapseConnection connection { get; set; }
 
-    IGraphSearch shortestPath(Shape shape, List<IGraphSearch> reachable);
+List<IGraphSearch> shortestPath(Shape shape, List<IGraphSearch> reachable);
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Knotenspawn : MonoBehaviour
 {
@@ -11,11 +12,9 @@ public class Knotenspawn : MonoBehaviour
     public float increasment = 1.1f;
     public string nodeTag;
     public bool running;
+    public GameObject node;
 
-
-    public GameObject triangle;
-    public GameObject circle;
-    public GameObject square;
+    
 
     public float minDistance;
 
@@ -26,6 +25,8 @@ public class Knotenspawn : MonoBehaviour
     private GameObject[] nodes;
     
     private float timeCounter;
+    
+    public Camera cam;
 
     private void Start()
     {
@@ -43,6 +44,16 @@ public class Knotenspawn : MonoBehaviour
             timeCounter = 0;
             //InvokeRepeating("Spawn", spawnTime, spawnTime);
         }
+        
+        //cam = Camera.current;
+
+        cam.orthographic = true;
+
+        //cam.fieldOfView *= increasment;
+        //cam.rect.size = cam.rect.size;
+        //Vector2 a = cam.rect.size;
+        //a = increasment * a;
+        //cam.rect.size.Set(a.x, a.y);
     }
 
     private void Spawn()
@@ -60,13 +71,10 @@ public class Knotenspawn : MonoBehaviour
             ranY = Random.Range(-1 * (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))), (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))));
 
             nodes = GameObject.FindGameObjectsWithTag(nodeTag);
-
             
 
             foreach (GameObject go in nodes)
             {
-                
-                bool nosuc = true;
                 
                 if(Vector2.Distance(go.transform.transform.position, new Vector2(ranX, ranY)) < minDistance)
                 {
@@ -74,43 +82,42 @@ public class Knotenspawn : MonoBehaviour
                     if (counter == 10)
                     {
                         maxDistance = maxDistance * increasment;
+
+                        cam.orthographicSize = (increasment * maxDistance) + 3;
+                        //cam.orthographicSize = cam.orthographicSize * 1.02f;
+
+                        //cam.orthographicSize = cam.orthographicSize * (1+((1f - increasment)*0.25f));
+                        
+                        //float test = cam.orthographicSize;
+
                         counter = 0;
                     }
                         
 
 
                     counter++;
-                    nosuc = false;
+                    
                     break;
                 }
-                //if (!nosuc)
-                  //  break;
+              
 
 
-                
                 success = true;
             }
-            //counter = 0;
+            
         }
 
         Vector2 pos = new Vector2(ranX, ranY);
 
-        int number = Random.Range(0, 3);
+        
+        int i = Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
 
+        GameObject newNode = Instantiate(node, pos, new Quaternion(0, 0, 0, 0));
+        newNode.GetComponent<NodeDataSpawner>().setShape((Shape)i);
 
-        switch (number)
-        {
-            case 0:
-                Instantiate(triangle, pos, new Quaternion(0, 0, 0, 0));
-                break;
-            case 1:
-                Instantiate(circle, pos, new Quaternion(0, 0, 0, 0));
-                break;
-            case 2:
-                Instantiate(square, pos, new Quaternion(0, 0, 0, 0));
-                break;
+        
 
-        }
+        
 
     }
 
