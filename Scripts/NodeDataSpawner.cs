@@ -19,7 +19,7 @@ public class NodeDataSpawner : Node
     {
         if (daten.Count >= lostDataCount)
         {
-            //Game end.
+            
         }
         else
         {

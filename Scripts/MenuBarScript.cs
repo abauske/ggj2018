@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MenuBarScript : MonoBehaviour {
-
+    
     public EscapeMenuScript escMenu2;
 
     public GameObject escMenu;
