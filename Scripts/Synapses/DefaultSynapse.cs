@@ -14,6 +14,7 @@ public class DefaultSynapse : Synapse
 
         if (Time.time > lastTransmissionStart + duration)
         {
+            Debug.Log("send");
             return true;
         }
         Debug.Log("We have to wait: " + (Time.time - lastTransmissionStart - duration));

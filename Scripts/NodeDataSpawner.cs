@@ -26,7 +26,7 @@ public class NodeDataSpawner : Node
     {
         if (daten.Count >= lostDataCount)
         {
-            GameObject.FindGameObjectsWithTag("endPanel")[0].GetComponent<EndPanelScript>().endGame();
+            GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame();
         }
         else
         {
@@ -106,18 +106,26 @@ public class NodeDataSpawner : Node
             var path = getShortestPathTo(d.shape);
             if (path == null)
             {
+//                Debug.Log("no path found");
                 break;
             }
 
             if (path.Count == 1)
             {
+                var highScore = GameObject.FindGameObjectWithTag("HighScore");
+                if (highScore != null)
+                {
+                    highScore.GetComponent<SetHighScore>().AddPoints(100);
+                }
+//                GameObject.FindGameObjectWithTag("Money").GetComponent<SetHighScore>().AddPoints(10);
                 Debug.Log("destination reached");
                 Destroy(d.gameObject);
                 removeData(d);
             }
             else if (path.Count > 1)
             {
-                if(path[1].connection.transferData(d))
+                Debug.Log("transmit");
+                if (path[1].connection.transferData(d))
                 {
                     removeData(d);
                 }
