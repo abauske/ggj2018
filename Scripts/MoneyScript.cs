@@ -25,6 +25,6 @@ public class MoneyScript : MonoBehaviour {
 
     void setMoneyText()
     {
-        MoneyText.text = string.Format("Money:\n{0:00000}", Money, "$");
+        MoneyText.text = Money.ToString();
     }
 }
