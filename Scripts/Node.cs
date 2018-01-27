@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : MonoBehaviour {
+public class Node : MonoBehaviour
+{
 
-    private List<ISynapseConnection> Connections = new List<ISynapseConnection>();
+    public Shape shape;
+
+    protected List<ISynapseConnection> Connections = new List<ISynapseConnection>();
 
     public void AddConnection(ISynapseConnection con)
     {
@@ -17,4 +20,24 @@ public class Node : MonoBehaviour {
     }
 
 
+    public IGraphSearch getShortestPathTo(Shape shape)
+    {
+        List<IGraphSearch> searchTree = new List<IGraphSearch>();
+        var thisNode = new GraphSearch {CurrentNode = this, PathLength = 0, Predecessor = null, Visited = true};
+
+        if (shape == this.shape)
+        {
+            return thisNode;
+        }
+
+        List<IGraphSearch> reachable = new List<IGraphSearch>();
+        reachable.Add(thisNode);
+
+        return thisNode.shortestPath(shape, reachable);
+    }
+
+    public List<ISynapseConnection> getConnections()
+    {
+        return this.Connections;
+    }
 }

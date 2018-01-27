@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Synapse : MonoBehaviour {
+public class Synapse : MonoBehaviour, ISynapseConnection {
 
+
+    public Node AccessibleNode
+    {
+        get { return to;}
+        set { to = value; }
+    }
+    public float Weight { get; set; }
     public Node from { get; set; }
     public Node to { get; set; }
 
@@ -20,7 +27,9 @@ public class Synapse : MonoBehaviour {
 
     void registerSynapse()
     {
-
+        Weight = Vector3.Distance(from.transform.position, to.transform.position);
+        from.AddConnection(this);
+        to.AddConnection(new SynapseConnection { AccessibleNode = from, Weight = this.Weight }); // as long as synapses are non directional
     }
 
     void drawConnection()
@@ -36,14 +45,4 @@ public class Synapse : MonoBehaviour {
         line.material.color = Color.black;
         line.numCornerVertices = 10;
     }
-
-    Vector3 getWorldCoords(GameObject go)
-    {
-        return go.transform.TransformPoint(go.transform.position);
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
