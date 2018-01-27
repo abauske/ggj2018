@@ -42,7 +42,9 @@ public class SynapseDrag : MonoBehaviour
         if (destination)
         {
             var synapseGameObject = new GameObject("synapse");
-            var synapse = synapseGameObject.AddComponent<DefaultSynapse>();
+            
+            var synapse = (Synapse) synapseGameObject.AddComponent(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>().syn);
+            print(synapse);
             synapse.from = gameObject.GetComponent<Node>();
             synapse.to = destination;
         }
