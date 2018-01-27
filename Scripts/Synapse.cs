@@ -17,9 +17,13 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
     private LineRenderer line;
 
+    protected float lastTransmissionStart;
+
     // Use this for initialization
     public void Start ()
     {
+        lastTransmissionStart = Time.time;
+
         line = gameObject.AddComponent<LineRenderer>();
         drawConnection();
 
@@ -47,6 +51,16 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
         line.numCornerVertices = 10;
     }
 
-    public abstract bool transferData(Data_Script data);
+    public bool transferData(Data_Script data)
+    {
+        if (this.canTransfer(data.shape))
+        {
+            lastTransmissionStart = Time.time;
+            var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
+            destination.addData(data);
+            return true;
+        }
+        return false;
+    }
     public abstract bool canTransfer(Shape data);
 }
