@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278ab82a724ee8b4dbe3431fcc4e5540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImageDreieck: {fileID: 21300000, guid: 581fff3ef29f5a748a939e93bdbee066, type: 3}
-  ImageViereck: {fileID: 21300000, guid: b789f2f6565a6974d8332ff2684b9afe, type: 3}
-  ImageKreis: {fileID: 21300000, guid: e635f1caf5fc2b349922d0b6e0f449ac, type: 3}
+  ImageDreieck: {fileID: 21300000, guid: 77ab7f71682511f49b9d92e3c3bfd1f4, type: 3}
+  ImageViereck: {fileID: 21300000, guid: 68a0539c2b22cb84a8d93f08bf8ed933, type: 3}
+  ImageKreis: {fileID: 21300000, guid: bc365beac4873c84c8aebebd7c6d8832, type: 3}
 --- !u!212 &212642537427354938
 SpriteRenderer:
   m_ObjectHideFlags: 1
