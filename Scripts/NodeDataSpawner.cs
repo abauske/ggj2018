@@ -37,7 +37,7 @@ public class NodeDataSpawner : Node
 
                 GameObject dataObject = Instantiate(dataPrefab, this.transform.position, new Quaternion(0, 0, 0, 0), this.transform);
 
-                Vector3 v = arangeData();
+                Vector3 v = arangeData(datenAmount);
                 dataObject.transform.position += v;
 
                 dataObject.SetActive(true);
@@ -61,14 +61,14 @@ public class NodeDataSpawner : Node
     }
 
     
-    public Vector3 arangeData()
+    public Vector3 arangeData(float i)
     {
         float x = 0;
         float y = 0;
 
         float winkel = (float) (2 * System.Math.PI) / lostDataCount;
-        Debug.Log(winkel + ", " + winkel * (datenAmount));
-        winkel = winkel * (float)(datenAmount) ;
+        Debug.Log(winkel + ", " + winkel * (i));
+        winkel = winkel * (float)(i) ;
         
 
         x = (float)(Vectorlength * (System.Math.Cos(winkel)));
@@ -89,7 +89,7 @@ public class NodeDataSpawner : Node
         int i = 0;
         foreach (Data_Script d in daten)
         {
-            d.transform.position += arangeData();
+            d.transform.position += arangeData(i);
             i++;
         }
 
