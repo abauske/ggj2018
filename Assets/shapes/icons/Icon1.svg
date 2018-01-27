@@ -1,92 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="Ebene_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 498.9 498.9"
-   style="enable-background:new 0 0 498.9 498.9;"
-   xml:space="preserve"
-   sodipodi:docname="Icon1.svg"
-   inkscape:version="0.92.0 r15299"
-   inkscape:export-filename="C:\Users\FoersterD\Documents\git\ggj\ggj2018\Assets\shapes\Icon1.png"
-   inkscape:export-xdpi="12.315093"
-   inkscape:export-ydpi="12.315093"><metadata
-     id="metadata21"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-     id="defs19" /><sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1058"
-     id="namedview17"
-     showgrid="false"
-     inkscape:zoom="0.94608139"
-     inkscape:cx="26.298857"
-     inkscape:cy="197.13804"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="Ebene_1" /><style
-     type="text/css"
-     id="style2">
-	.st0{fill:#404040;}
-	.st1{fill:#D1D1D1;}
-</style><rect
-     class="st0"
-     width="498.9"
-     height="498.9"
-     id="rect4" /><rect
-     x="267.49002"
-     y="18.5872"
-     class="st1"
-     width="187.2"
-     height="18"
-     id="rect6"
-     style="fill:#d1d1d1" /><rect
-     x="370"
-     y="103.2"
-     transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 575.89 -351.4128)"
-     class="st1"
-     width="187.2"
-     height="18"
-     id="rect8" /><g
-     id="g4509"
-     transform="translate(28.863719,-23.556894)"><rect
-       transform="rotate(-45)"
-       y="332.47824"
-       x="-300.44101"
-       height="19.983299"
-       width="492.00259"
-       id="rect4500"
-       style="opacity:1;fill:#d1d1d1;fill-opacity:1;stroke-width:0.92196131;paint-order:stroke fill markers" /><rect
-       style="opacity:1;fill:#d1d1d1;fill-opacity:1;stroke-width:0.92196131;paint-order:stroke fill markers"
-       id="rect4502"
-       width="492.00259"
-       height="19.983299"
-       x="-299.91251"
-       y="382.68533"
-       transform="rotate(-45)" /><rect
-       transform="rotate(-45)"
-       y="282.27115"
-       x="-300.96948"
-       height="19.983299"
-       width="492.00259"
-       id="rect4504"
-       style="opacity:1;fill:#d1d1d1;fill-opacity:1;stroke-width:0.92196131;paint-order:stroke fill markers" /></g></svg>
+<svg version="1.1"
+	 id="Ebene_1" inkscape:export-filename="C:\Users\FoersterD\Documents\git\ggj\ggj2018\Assets\shapes\Icon1.png" inkscape:export-xdpi="12.315093" inkscape:export-ydpi="12.315093" inkscape:version="0.92.0 r15299" sodipodi:docname="Icon1.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 498.9 498.9"
+	 style="enable-background:new 0 0 498.9 498.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#6B6D76;}
+	.st1{fill:#FFFFFA;}
+</style>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1" gridtolerance="10" guidetolerance="10" id="namedview17" inkscape:current-layer="Ebene_1" inkscape:cx="26.298857" inkscape:cy="197.13804" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-height="1058" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:zoom="0.94608139" objecttolerance="10" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<rect id="rect4" y="0" class="st0" width="498.9" height="498.9"/>
+<rect id="rect6" x="267.5" y="18.6" class="st1" width="187.2" height="18"/>
+<rect id="rect8" x="454.7" y="18.6" class="st1" width="18" height="187.2"/>
+<g id="g4509" transform="translate(28.863719,-23.556894)">
+	
+		<rect id="rect4500" x="-42.3" y="270.7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -138.8018 226.2178)" class="st1" width="492" height="20"/>
+	
+		<rect id="rect4502" x="-6.5" y="305.8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -153.1334 261.8743)" class="st1" width="492" height="20"/>
+	
+		<rect id="rect4504" x="-78.2" y="235.5" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -124.4702 190.5612)" class="st1" width="492" height="20"/>
+</g>
+</svg>
