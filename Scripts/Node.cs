@@ -20,18 +20,18 @@ public class Node : MonoBehaviour
     }
 
 
-    public IGraphSearch getShortestPathTo(Shape shape)
+    public List<IGraphSearch> getShortestPathTo(Shape shape)
     {
-        List<IGraphSearch> searchTree = new List<IGraphSearch>();
+        var searchTree = new List<IGraphSearch>();
         var thisNode = new GraphSearch {CurrentNode = this, PathLength = 0, Predecessor = null, Visited = true};
 
         if (shape == this.shape)
         {
-            return thisNode;
+            var path = new List<IGraphSearch> {thisNode};
+            return path;
         }
 
-        List<IGraphSearch> reachable = new List<IGraphSearch>();
-        reachable.Add(thisNode);
+        List<IGraphSearch> reachable = new List<IGraphSearch> {thisNode};
 
         return thisNode.shortestPath(shape, reachable);
     }

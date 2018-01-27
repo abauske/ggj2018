@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Data_Script : MonoBehaviour
 {
-    private Shape shape;
+    public Shape shape { get; private set; }
     public Sprite ImageDreieck;
     public Sprite ImageViereck;
     public Sprite ImageKreis;
