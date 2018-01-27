@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Synapse : MonoBehaviour, ISynapseConnection {
+public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
 
     public Node AccessibleNode
@@ -18,7 +18,7 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
     private LineRenderer line;
 
     // Use this for initialization
-    void Start ()
+    public void Start ()
     {
         line = gameObject.AddComponent<LineRenderer>();
         drawConnection();
@@ -30,7 +30,7 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
     {
         Weight = Vector3.Distance(from.transform.position, to.transform.position);
         from.AddConnection(this);
-        to.AddConnection(new SynapseConnection { AccessibleNode = from, Weight = this.Weight }); // as long as synapses are non directional
+//        to.AddConnection(new SynapseConnection { AccessibleNode = from, Weight = this.Weight }); // as long as synapses are non directional
     }
 
     void drawConnection()
@@ -47,10 +47,6 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
         line.numCornerVertices = 10;
     }
 
-    public bool transferData(Data_Script data)
-    {
-        var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
-        destination.addData(data);
-        return true;
-    }
+    public abstract bool transferData(Data_Script data);
+    public abstract bool canTransfer(Shape data);
 }

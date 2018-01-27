@@ -11,7 +11,7 @@ public class Knotenspawn : MonoBehaviour
     public float centerY = 0f;
     public float increasment = 1.1f;
     public string nodeTag;
-
+    public bool running;
     public GameObject node;
 
     
@@ -23,15 +23,37 @@ public class Knotenspawn : MonoBehaviour
     private static float maxDistance = 2;
 
     private GameObject[] nodes;
-
-
-
+    
+    private float timeCounter;
+    
+    public Camera cam;
 
     private void Start()
     {
-        //Spawn immer nach spawntime ausführen
+        running = true;
+    }
 
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+    private void FixedUpdate()
+    {
+        timeCounter += Time.deltaTime; // 0.02
+        //Spawn immer nach spawntime ausführen
+        
+        if (running && (int)(timeCounter) != 0 && ((int)(timeCounter)) % spawnTime == 0)
+        {
+            Spawn();
+            timeCounter = 0;
+            //InvokeRepeating("Spawn", spawnTime, spawnTime);
+        }
+        
+        //cam = Camera.current;
+
+        cam.orthographic = true;
+
+        //cam.fieldOfView *= increasment;
+        //cam.rect.size = cam.rect.size;
+        //Vector2 a = cam.rect.size;
+        //a = increasment * a;
+        //cam.rect.size.Set(a.x, a.y);
     }
 
     private void Spawn()
@@ -49,13 +71,10 @@ public class Knotenspawn : MonoBehaviour
             ranY = Random.Range(-1 * (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))), (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))));
 
             nodes = GameObject.FindGameObjectsWithTag(nodeTag);
-
             
 
             foreach (GameObject go in nodes)
             {
-                
-                
                 
                 if(Vector2.Distance(go.transform.transform.position, new Vector2(ranX, ranY)) < minDistance)
                 {
@@ -63,6 +82,14 @@ public class Knotenspawn : MonoBehaviour
                     if (counter == 10)
                     {
                         maxDistance = maxDistance * increasment;
+
+                        cam.orthographicSize = (increasment * maxDistance) + 3;
+                        //cam.orthographicSize = cam.orthographicSize * 1.02f;
+
+                        //cam.orthographicSize = cam.orthographicSize * (1+((1f - increasment)*0.25f));
+                        
+                        //float test = cam.orthographicSize;
+
                         counter = 0;
                     }
                         
@@ -72,10 +99,9 @@ public class Knotenspawn : MonoBehaviour
                     
                     break;
                 }
-                
+              
 
 
-                
                 success = true;
             }
             
