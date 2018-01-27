@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class SetHighScore : MonoBehaviour {
 
-    public double score;
+    public int score;
 
     public Text scoreText;
 
 	// Use this for initialization
 	void Start ()
     {
-        score = 50;
+
         scoreText = GetComponent<Text>();
         setHighScoreText();
 	}
@@ -20,9 +20,13 @@ public class SetHighScore : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        score += Time.deltaTime;
         setHighScoreText();
 	}
+
+    public void AddPoints(int points)
+    {
+        score += points;
+    }
 
     void setHighScoreText()
     {
