@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuBarScript : MonoBehaviour {
 
+    public EscapeMenuScript escMenu2;
+
     public GameObject escMenu;
     private bool escIsShowing;
 
@@ -23,12 +25,21 @@ public class MenuBarScript : MonoBehaviour {
         spawner.running = true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown("escape"))
         {
-            escIsShowing = !escIsShowing;
-            escMenu.SetActive(escIsShowing);
+            escIsShowing = !escIsShowing;            
+            if (escIsShowing)
+            {
+                escMenu.SetActive(escIsShowing);
+                escMenu2.moveIn();
+            }
+            else
+            {
+                escMenu2.moveOut();
+                escMenu.SetActive(escIsShowing);
+            }
             
             barIsShowing = !barIsShowing;
             menuBar.SetActive(barIsShowing);

@@ -1470,6 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f57c25cb74ef240a712191768348a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escMenu2: {fileID: 1213377484}
   escMenu: {fileID: 216674744}
   spawner: {fileID: 353937029}
   menuBar: {fileID: 1590794803}
@@ -1522,7 +1523,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987128775
 MonoBehaviour:
@@ -1793,7 +1794,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188006254
 MonoBehaviour:
@@ -1892,6 +1893,7 @@ GameObject:
   - component: {fileID: 1213377479}
   - component: {fileID: 1213377481}
   - component: {fileID: 1213377482}
+  - component: {fileID: 1213377484}
   m_Layer: 5
   m_Name: EscapePanel
   m_TagString: Untagged
@@ -1974,7 +1976,7 @@ MonoBehaviour:
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 1
 --- !u!114 &1213377482
 MonoBehaviour:
@@ -1989,6 +1991,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 382181647}
   selectedObject: {fileID: 1861567441}
+--- !u!114 &1213377484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1213377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc73802e6a8c0246828c2dfb9361da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1279909808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,7 +2741,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1861567443
 MonoBehaviour:
@@ -3245,7 +3258,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2119868293
 MonoBehaviour:
