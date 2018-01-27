@@ -43,7 +43,7 @@ public class NodeDataSpawner : Node
                 }
             }
         }
-        this.trySendData();
+//        this.trySendData();
     }
 
     public void addData(Data_Script data)
@@ -57,6 +57,10 @@ public class NodeDataSpawner : Node
         foreach (var d in daten)
         {
             var path = getShortestPathTo(d.shape);
+            if (path == null)
+            {
+                return; 
+            }
             if (path.Count == 1)
             {
                 Destroy(d.gameObject);

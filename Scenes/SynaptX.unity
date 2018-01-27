@@ -144,9 +144,7 @@ MonoBehaviour:
   centerY: 0
   increasment: 1.1
   nodeTag: Node
-  triangle: {fileID: 540450702}
-  circle: {fileID: 540450702}
-  square: {fileID: 540450702}
+  node: {fileID: 540450702}
   minDistance: 4
   spawnTime: 2
 --- !u!4 &353937030
@@ -404,10 +402,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a4af9616513dc4a884d3218268e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: 0
-  NodeType1: {fileID: 0}
-  NodeType2: {fileID: 0}
-  NodeType3: {fileID: 0}
+  TriangleImg: {fileID: 21300000, guid: a38cdcb8ddc5f2d4281dde43b3ec3dcc, type: 3}
+  SqareImg: {fileID: 21300000, guid: fe0b35199f15fea4fad779e887906e24, type: 3}
+  CircleImg: {fileID: 21300000, guid: 4b5925e903457f146893d4ed2e08ea91, type: 3}
   spawnSpeed: 10
   spawnIntervall: 4
 --- !u!1 &675354048

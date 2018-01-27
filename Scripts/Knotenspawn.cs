@@ -87,9 +87,7 @@ public class Knotenspawn : MonoBehaviour
         int i = Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
 
         GameObject newNode = Instantiate(node, pos, new Quaternion(0, 0, 0, 0));
-        newNode.AddComponent<Image>();
-        NodeDataSpawner spawner = newNode.AddComponent<NodeDataSpawner>();
-        spawner.setShape((Shape)i);
+        newNode.GetComponent<NodeDataSpawner>().setShape((Shape)i);
 
         
 

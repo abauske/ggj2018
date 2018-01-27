@@ -11,6 +11,7 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
         set { to = value; }
     }
     public float Weight { get; set; }
+
     public Node from { get; set; }
     public Node to { get; set; }
 
@@ -44,5 +45,12 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
         line.endWidth = 0.1f;
         line.material.color = Color.black;
         line.numCornerVertices = 10;
+    }
+
+    public bool transferData(Data_Script data)
+    {
+        var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
+        destination.addData(data);
+        return true;
     }
 }
