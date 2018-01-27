@@ -61,6 +61,13 @@ public class Knotenspawn : MonoBehaviour
                     if (counter == 10)
                     {
                         maxDistance = maxDistance * increasment;
+                        Camera cam = Camera.current;
+                        //cam.fieldOfView *= increasment;
+                        //cam.rect.size = cam.rect.size;
+                        Vector2 a = cam.rect.size;
+                        a = increasment * a;
+                        cam.rect.size.Set(a.x, a.y);
+                        
                         counter = 0;
                     }
                         
