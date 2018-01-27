@@ -11,7 +11,7 @@ public class Knotenspawn : MonoBehaviour
     public float centerY = 0f;
     public float increasment = 1.1f;
     public string nodeTag;
-
+    public bool running;
     public GameObject node;
 
     
@@ -23,20 +23,31 @@ public class Knotenspawn : MonoBehaviour
     private static float maxDistance = 2;
 
     private GameObject[] nodes;
-
+    
+    private float timeCounter;
+    
     public Camera cam;
-
 
     private void Start()
     {
+        running = true;
+    }
+
+    private void FixedUpdate()
+    {
+        timeCounter += Time.deltaTime; // 0.02
         //Spawn immer nach spawntime ausführen
-
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
-
+        
+        if (running && (int)(timeCounter) != 0 && ((int)(timeCounter)) % spawnTime == 0)
+        {
+            Spawn();
+            timeCounter = 0;
+            //InvokeRepeating("Spawn", spawnTime, spawnTime);
+        }
+        
         //cam = Camera.current;
 
         cam.orthographic = true;
-
 
         //cam.fieldOfView *= increasment;
         //cam.rect.size = cam.rect.size;
