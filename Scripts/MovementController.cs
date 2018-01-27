@@ -6,6 +6,7 @@ public class MovementController : MonoBehaviour {
 
     public Vector3 way;
     public float speed;
+    public Vector3 finish;
 
 	// Use this for initialization
 	void Start () {
@@ -24,5 +25,7 @@ public class MovementController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.transform.position = transform.position + way * speed * Time.deltaTime;
+        if (transform.position.x == finish.x)
+            Destroy(this.gameObject);
 	}
 }
