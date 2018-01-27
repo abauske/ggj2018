@@ -43,11 +43,11 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
         line.positionCount = 2;
         line.SetPosition(0, from.transform.position);
         line.SetPosition(1, to.transform.position);
-        line.startColor = Color.black;
-        line.endColor = Color.black;
+        line.startColor = Color.white;
+        line.endColor = Color.white;
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;
-        line.material.color = Color.black;
+        line.material.color = Color.white;
         line.numCornerVertices = 10;
     }
 

@@ -18,7 +18,7 @@ public class MoneyScript : MonoBehaviour {
         setMoneyText();
     }
 
-    void AddMoney(int bymoney)
+    public void AddMoney(int bymoney)
     {
         Money += bymoney;
     }
