@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: a4752d236cc137d40beae4f41125f940
+<<<<<<< HEAD
+guid: eed9d37718ec3264dab3000c63ad5f20
+=======
+guid: c7513d3f34ba60942a3ae3ba60acd579
+>>>>>>> 1757b9fed646adac2925166983b4f0f6b121ce72
 folderAsset: yes
 timeCreated: 1516999946
 licenseType: Free
