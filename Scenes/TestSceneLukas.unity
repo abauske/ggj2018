@@ -198,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a4af9616513dc4a884d3218268e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Triangle: {fileID: 21300000, guid: bba18cf924ce3a4469018cdce2b1348d, type: 3}
-  Square: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  Circle: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  TriangleImg: {fileID: 0}
+  SqareImg: {fileID: 0}
+  CircleImg: {fileID: 0}
   dataPrefab: {fileID: 1893089003}
   spawnSpeed: 10
   spawnIntervall: 1
@@ -397,9 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278ab82a724ee8b4dbe3431fcc4e5540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImageDreieck: {fileID: 21300000, guid: bba18cf924ce3a4469018cdce2b1348d, type: 3}
-  ImageViereck: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  ImageKreis: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ImageDreieck: {fileID: 21300000, guid: 77ab7f71682511f49b9d92e3c3bfd1f4, type: 3}
+  ImageViereck: {fileID: 21300000, guid: 68a0539c2b22cb84a8d93f08bf8ed933, type: 3}
+  ImageKreis: {fileID: 21300000, guid: bc365beac4873c84c8aebebd7c6d8832, type: 3}
 --- !u!212 &1893089005
 SpriteRenderer:
   m_ObjectHideFlags: 0
