@@ -55,8 +55,6 @@ public class Knotenspawn : MonoBehaviour
             foreach (GameObject go in nodes)
             {
                 
-                
-                
                 if(Vector2.Distance(go.transform.transform.position, new Vector2(ranX, ranY)) < minDistance)
                 {
                     success = false;
@@ -72,10 +70,7 @@ public class Knotenspawn : MonoBehaviour
                     
                     break;
                 }
-                
-
-
-                
+              
                 success = true;
             }
             

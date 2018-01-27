@@ -10,6 +10,7 @@ public class NodeDataSpawner : Node
     private int lostDataCount = 6;
     public int spawnSpeed = 10;
 
+    private int Vectorlength = 1;
     private int counter = 0;
     private float spawnTime;
     public float spawnIntervall = 1;
@@ -33,9 +34,19 @@ public class NodeDataSpawner : Node
             {
                 spawnTime = Time.time + spawnIntervall;
                 counter += 1;
-                int i = Random.Range(0,  System.Enum.GetNames(typeof(Shape)).Length);
+                int i = Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
 
-                GameObject dataObject = Instantiate(dataPrefab, this.transform.position, new Quaternion(0, 0, 0, 0), this.transform);
+                float x = this.transform.position.x;
+                float y = this.transform.position.y;
+
+                float winkel = 360 / lostDataCount;
+                winkel *= daten.Count;
+
+                y += Vectorlength * (float) System.Math.Sin(winkel);
+                x += Vectorlength * (float)System.Math.Cos(winkel);
+
+
+                GameObject dataObject = Instantiate(dataPrefab, new Vector2(x,y), new Quaternion(0, 0, 0, 0), this.transform);
 
                 dataObject.SetActive(true);
                 var d = dataObject.GetComponent<Data_Script>();
@@ -43,7 +54,7 @@ public class NodeDataSpawner : Node
                 // d.transform.SetParent(this.transform);
                 
                 daten.Add(dataObject);
-                dataObject.transform.position = this.transform.position;
+                //dataObject.transform.position = this.transform.position;
 
 
                 if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
