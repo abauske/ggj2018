@@ -27,26 +27,26 @@ public class MenuBarScript : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown("escape"))
-        {
-            escIsShowing = !escIsShowing;            
-            if (escIsShowing)
-            {
-                escMenu.SetActive(escIsShowing);
-                escMenu2.moveIn();
-            }
-            else
-            {
-                escMenu2.moveOut();
-                escMenu.SetActive(escIsShowing);
-            }
+        //if (Input.GetKeyDown("escape"))
+        //{
+        //    escIsShowing = !escIsShowing;            
+        //    if (escIsShowing)
+        //    {
+        //        escMenu.SetActive(escIsShowing);
+        //        escMenu2.moveIn();
+        //    }
+        //    else
+        //    {
+        //        escMenu2.moveOut();
+        //        escMenu.SetActive(escIsShowing);
+        //    }
             
-            barIsShowing = !barIsShowing;
-            menuBar.SetActive(barIsShowing);
+        //    barIsShowing = !barIsShowing;
+        //    menuBar.SetActive(barIsShowing);
 
-            spawner.running = !spawner.running;
+        //    spawner.running = !spawner.running;
 
-            globalRunning = !globalRunning;
-        }
+        //    globalRunning = !globalRunning;
+        //}
     }
 }

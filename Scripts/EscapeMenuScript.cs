@@ -22,51 +22,44 @@ public class EscapeMenuScript : MonoBehaviour {
         speedIn = 10f;
         speedOut = -10f;
         xEnd = label.rect.xMax;
-        label.position = startingPosition;
+        //label.position = startingPosition;
     }
 
-    public void moveIn()
-    {
-        inMove = true;
-        label.position = startingPosition;
-    }
+    //public void moveIn()
+    //{
+    //    inMove = true;
+    //    speedIn = 10f;
+    //    FixedUpdate();
+    //}
 
-    public void moveOut()
-    {
-        outMove = true;
-        speedOut = -10f;
-    }
+    //public void moveOut()
+    //{
+    //    outMove = true;
+    //    speedOut = -10f;
+    //    FixedUpdate();
+    //}
 
-    private void FixedUpdate()
-    {
-        if (inMove && label.rect.xMin < 0)
-        {
-            if(label.position.x > startingPosition.x*0.2)
-            {
-                speedIn *= 0.65f;
-            }
+    //private void FixedUpdate()
+    //{
+    //    if (inMove && label.position.x < 0)
+    //    {
+    //        if (label.position.x > startingPosition.x * 0.2)
+    //        {
+    //            speedIn *= 0.65f;
+    //        }
 
-            transform.Translate(speedIn, 0f, 0f);
-            if (label.position.x < xEnd)
-                transform.position = new Vector3(label.position.x + speedIn, startingPosition.y, startingPosition.z);
-        }
+    //        transform.Translate(speedIn, 0f, 0f);
+    //        if (label.position.x < 0)
+    //            transform.position = new Vector3(label.position.x + speedIn, startingPosition.y, startingPosition.z);
+    //    }
+    //    else if (outMove && (label.position.x > -label.rect.xMax))
+    //    {
+    //        transform.Translate(speedOut, 0f, 0f);
+    //        if (label.position.x > 0)
+    //        {
+    //            transform.position = new Vector3(label.position.x + speedOut, startingPosition.y, startingPosition.z);
+    //        }
 
-        if(label.position.x + label.rect.xMax < 0.1 || outMove)
-        {
-            inMove = false;
-            speedIn = 10f;
-        }
-
-        if(outMove && label.rect.xMax > 0)
-        {
-            transform.Translate(speedOut, 0f, 0f);
-            transform.position = new Vector3(label.position.x + speedOut, startingPosition.y, startingPosition.z);
-        }
-
-        if(label.rect.xMax < 0 || inMove)
-        {
-            outMove = false;
-            speedOut = -10f;
-        }
-    }
+    //    }
+    //}
 }
