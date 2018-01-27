@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Synapse : MonoBehaviour {
 
-    public Knot from { get; set; }
-    public Knot to { get; set; }
+    public Node from { get; set; }
+    public Node to { get; set; }
 
     private LineRenderer line;
 
