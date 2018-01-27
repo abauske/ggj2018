@@ -248,6 +248,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &30479643
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +433,7 @@ GameObject:
   - component: {fileID: 79578869}
   - component: {fileID: 79578868}
   - component: {fileID: 79578867}
+  - component: {fileID: 79578872}
   m_Layer: 5
   m_Name: SynFast (1)
   m_TagString: Untagged
@@ -446,6 +471,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!114 &79578868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,6 +580,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 79578865}
+--- !u!114 &79578872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79578865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a6629fdcc4b97449efd0588386b317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &130000778
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +800,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &150278236
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +959,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &199670738
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +1032,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!114 &199670741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,6 +2573,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &643320361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,6 +3342,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!114 &987128779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3705,6 +3885,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &1148807770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,6 +4288,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &1198149305
 GameObject:
   m_ObjectHideFlags: 0
@@ -6259,6 +6487,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!114 &1861567447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6689,6 +6941,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &1999119381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6892,6 +7168,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
 --- !u!1 &2111666485
 GameObject:
   m_ObjectHideFlags: 0
@@ -7111,3 +7411,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000ba179b46c1f44bb453152f5cba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
+  colorsButton:
+    m_NormalColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_HighlightedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_PressedColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_DisabledColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
