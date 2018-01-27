@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Node_TF_VErsion : MonoBehaviour
-{ 
-    
+{
+    private Shape shape;
+    public Sprite NodeType1;
+    public Sprite NodeType2;
+    public Sprite NodeType3;
+
     public List<GameObject> daten;
 
     public int spawnSpeed = 10;
@@ -50,5 +54,25 @@ public class Node_TF_VErsion : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void setShape(Shape s)
+    {
+        shape = s;
+        switch (shape)
+        {
+            case Shape.TRIANGLE:
+                this.GetComponent<Image>().sprite = NodeType1; // Dreieck
+                break;
+            case Shape.SQUARE:
+                this.GetComponent<Image>().sprite = NodeType2; //Viereck
+                break;
+            case Shape.CIRCLE:
+                this.GetComponent<Image>().sprite = NodeType3; //Kreis
+                break;
+
+            default: break;
+        }
+
     }
 }

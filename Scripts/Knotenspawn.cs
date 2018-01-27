@@ -11,8 +11,6 @@ public class Knotenspawn : MonoBehaviour
     public float increasment = 1.1f;
     public string nodeTag;
 
-
-
     public GameObject triangle;
     public GameObject circle;
     public GameObject square;
@@ -24,9 +22,6 @@ public class Knotenspawn : MonoBehaviour
     private static float maxDistance = 2;
 
     private GameObject[] nodes;
-
-
-
 
     private void Start()
     {
@@ -51,8 +46,6 @@ public class Knotenspawn : MonoBehaviour
 
             nodes = GameObject.FindGameObjectsWithTag(nodeTag);
 
-            
-
             foreach (GameObject go in nodes)
             {
                 
@@ -67,8 +60,6 @@ public class Knotenspawn : MonoBehaviour
                         counter = 0;
                     }
                         
-
-
                     counter++;
                     nosuc = false;
                     break;
@@ -76,8 +67,6 @@ public class Knotenspawn : MonoBehaviour
                 //if (!nosuc)
                   //  break;
 
-
-                
                 success = true;
             }
             //counter = 0;
