@@ -7,8 +7,6 @@ public class SynapseDrag : MonoBehaviour
 {
     public LineRenderer line;
 
-    public Synapse s;
-
     private Vector3 dragStart;
     private Node destination;
 
@@ -44,21 +42,9 @@ public class SynapseDrag : MonoBehaviour
         if (destination)
         {
             var synapseGameObject = new GameObject("synapse");
-
-            if (s is DefaultSynapse)
-            {
-                var synapse = synapseGameObject.AddComponent<DefaultSynapse>();
-                synapse.from = gameObject.GetComponent<Node>();
-                synapse.to = destination;
-            }
-            else if (s is SingleShapeSynapse)
-            {
-                var synapse = synapseGameObject.AddComponent<SingleShapeSynapse>();
-                synapse.from = gameObject.GetComponent<Node>();
-                synapse.to = destination;
-            }
-
-
+            var synapse = synapseGameObject.AddComponent<DefaultSynapse>();
+            synapse.from = gameObject.GetComponent<Node>();
+            synapse.to = destination;
         }
 
         line.gameObject.SetActive(false);
