@@ -28,6 +28,10 @@ public class GraphSearch : IGraphSearch {
 
         foreach (var con in CurrentNode.getConnections())
         {
+            if (!con.canTransfer(shape))
+            {
+                break;
+            }
             var existing = reachable.Find(r => r.CurrentNode == con.AccessibleNode);
             var searchObject = new GraphSearch
             {
