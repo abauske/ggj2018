@@ -21,7 +21,7 @@ public class Knotenspawn : MonoBehaviour
 
     public float spawnTime;
 
-    private static float maxDistance = 5;
+    private static float maxDistance = 2;
 
     private GameObject[] nodes;
 
@@ -30,6 +30,8 @@ public class Knotenspawn : MonoBehaviour
 
     private void Start()
     {
+        //Spawn immer nach spawntime ausführen
+
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
@@ -38,43 +40,53 @@ public class Knotenspawn : MonoBehaviour
         if (maxDistance == 0)
             maxDistance = 1;
 
-        bool succes = false;
+        bool success = false;
         float ranX = 0;
         float ranY = 0;
-        while (!succes)
+        int counter = 0;
+        while (!success)
         {
-            ranX = Random.Range(0.1f, maxDistance);
-            ranY = Random.Range(0.1f, (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))));
+            ranX = Random.Range(-1 * maxDistance, maxDistance);
+            ranY = Random.Range(-1 * (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))), (float)(System.Math.Sqrt((maxDistance * maxDistance + ranX * ranX))));
 
             nodes = GameObject.FindGameObjectsWithTag(nodeTag);
 
-            int counter = 0;
+            
 
             foreach (GameObject go in nodes)
             {
+                
                 bool nosuc = true;
-                if (GiveDistance(go, ranX, ranY) < minDistance)
+                
+                if(Vector2.Distance(go.transform.transform.position, new Vector2(ranX, ranY)) < minDistance)
                 {
-                    if (counter == 3)
+                    success = false;
+                    if (counter == 10)
+                    {
                         maxDistance = maxDistance * increasment;
+                        counter = 0;
+                    }
+                        
+
 
                     counter++;
                     nosuc = false;
-                }
-                if (!nosuc)
                     break;
+                }
+                //if (!nosuc)
+                  //  break;
 
 
-                counter = 0;
-                succes = true;
+                
+                success = true;
             }
+            //counter = 0;
         }
 
         Vector2 pos = new Vector2(ranX, ranY);
 
-        int number = (int)Random.Range(0, 3);
-        if (number == 3)
-            number = 2;
+        int number = Random.Range(0, 3);
+
 
         switch (number)
         {
@@ -92,18 +104,5 @@ public class Knotenspawn : MonoBehaviour
 
     }
 
-    private float GiveDistance(GameObject g, float x, float y)
-    {
-        Vector2 a = gameObject.transform.transform.position;
-
-        bool equal = a.x == x && a.y == y;
-
-        if (equal)
-            return 0;
-
-        float distance = (float)System.Math.Sqrt((a.x - x) * (a.x - x) + (a.y - y) * (a.y - y));
-
-
-        return distance;
-    }
+    
 }
