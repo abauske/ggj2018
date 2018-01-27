@@ -24,9 +24,10 @@ public class NodeDataSpawner : Node
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (daten.Count >= lostDataCount)
         {
-            GameObject.FindGameObjectsWithTag("endPanel")[0].GetComponent<EndPanelScript>().endGame();
+            GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame();
         }
         else
         {
@@ -106,18 +107,27 @@ public class NodeDataSpawner : Node
             var path = getShortestPathTo(d.shape);
             if (path == null)
             {
-                break;
+                continue;
             }
 
             if (path.Count == 1)
             {
-                Debug.Log("destination reached");
+                var highScore = GameObject.FindGameObjectWithTag("HighScore");
+                if (highScore != null)
+                {
+                    highScore.GetComponent<SetHighScore>().AddPoints(100);
+                }
+                var money = GameObject.FindGameObjectWithTag("Money");
+                if (money != null)
+                {
+                    money.GetComponent<MoneyScript>().AddMoney(10);
+                }
                 Destroy(d.gameObject);
                 removeData(d);
             }
             else if (path.Count > 1)
             {
-                if(path[1].connection.transferData(d))
+                if (path[1].connection.transferData(d))
                 {
                     removeData(d);
                 }

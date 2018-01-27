@@ -24,8 +24,7 @@ public class GraphSearch : IGraphSearch {
             path = new List<IGraphSearch> {this};
             return path;
         }
-
-
+        
         foreach (var con in CurrentNode.getConnections())
         {
             if (!con.canTransfer(shape))
@@ -38,7 +37,8 @@ public class GraphSearch : IGraphSearch {
                 PathLength = PathLength + con.Weight,
                 CurrentNode = con.AccessibleNode,
                 Predecessor = this,
-                connection = con
+                connection = con,
+                Visited = false
             };
             if (existing == null)
             {
@@ -55,7 +55,10 @@ public class GraphSearch : IGraphSearch {
         }
         
         var closestNextNode = getClosest(reachable);
-        if (closestNextNode == null) return null;
+        if (closestNextNode == null)
+        {
+            return null;
+        }
         path = closestNextNode.shortestPath(shape, reachable);
         if (path == null) return null;
         path.Insert(0, this);

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class SetHighScore : MonoBehaviour {
 
-    public int score;
+    private int score;
 
-    public Text scoreText;
+    private Text scoreText;
 
 	// Use this for initialization
 	void Start ()
