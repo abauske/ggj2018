@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
-    public Sprite Triangle;
-    public Sprite Square;
-    public Sprite Circle;
+    public Sprite TriangleImg;
+    public Sprite SqareImg;
+    public Sprite CircleImg;
 
     internal Shape shape;
 
@@ -24,18 +24,18 @@ public class Node : MonoBehaviour
     }
 
 
-    public IGraphSearch getShortestPathTo(Shape shape)
+    public List<IGraphSearch> getShortestPathTo(Shape shape)
     {
-        List<IGraphSearch> searchTree = new List<IGraphSearch>();
+        var searchTree = new List<IGraphSearch>();
         var thisNode = new GraphSearch {CurrentNode = this, PathLength = 0, Predecessor = null, Visited = true};
 
         if (shape == this.shape)
         {
-            return thisNode;
+            var path = new List<IGraphSearch> {thisNode};
+            return path;
         }
 
-        List<IGraphSearch> reachable = new List<IGraphSearch>();
-        reachable.Add(thisNode);
+        List<IGraphSearch> reachable = new List<IGraphSearch> {thisNode};
 
         return thisNode.shortestPath(shape, reachable);
     }
@@ -51,13 +51,13 @@ public class Node : MonoBehaviour
         switch (shape)
         {
             case Shape.TRIANGLE:
-                this.GetComponent<Image>().sprite = Triangle; // Dreieck
+                this.GetComponent<SpriteRenderer>().sprite = TriangleImg; // Dreieck
                 break;
             case Shape.SQUARE:
-                this.GetComponent<Image>().sprite = Square; //Viereck
+                this.GetComponent<SpriteRenderer>().sprite = SqareImg; //Viereck
                 break;
             case Shape.CIRCLE:
-                this.GetComponent<Image>().sprite = Circle; //Kreis
+                this.GetComponent<SpriteRenderer>().sprite = CircleImg; //Kreis
                 break;
 
             default: break;
