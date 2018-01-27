@@ -13,8 +13,7 @@ public class Knotenspawn : MonoBehaviour
     public string nodeTag;
     public bool running;
     public GameObject node;
-
-    
+       
 
     public float minDistance;
 

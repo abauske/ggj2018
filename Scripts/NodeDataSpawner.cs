@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class NodeDataSpawner : Node
 {
@@ -13,13 +14,19 @@ public class NodeDataSpawner : Node
     private int counter = 0;
     private float spawnTime;
     public float spawnIntervall = 6;
+    
+    
+    private void Start()
+    {
 
+    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
         if (daten.Count >= lostDataCount)
         {
-            
+            GameObject.FindGameObjectsWithTag("endPanel")[0].GetComponent<EndPanelScript>().endGame();
         }
         else
         {

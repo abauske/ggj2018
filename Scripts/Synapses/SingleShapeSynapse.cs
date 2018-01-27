@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultSynapse : Synapse
+public class SingleShapeSynapse : Synapse
 {
-    public float speedMultiplier = 1;
-    private readonly float defaultSpeed = 4;
+    private float transferspeed = 8;
+
+    public Shape transferable = Shape.CIRCLE;
 
     public override bool canTransfer(Shape data)
     {
-        float transferspeed = defaultSpeed * speedMultiplier;
         float duration = Weight / transferspeed;
 
-        if (Time.time > lastTransmissionStart + duration)
+        if (data == transferable && Time.time > lastTransmissionStart + duration)
         {
             return true;
         }
         Debug.Log("We have to wait: " + (Time.time - lastTransmissionStart - duration));
         return false;
     }
+
 }
