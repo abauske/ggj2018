@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Node_TF_VErsion : MonoBehaviour
+public class NodeDataSpawner : Node
 {
     private Shape shape;
     public Sprite NodeType1;
     public Sprite NodeType2;
     public Sprite NodeType3;
 
-    public List<GameObject> daten;
-
+    private List<GameObject> daten;
+    private int lostDataCount = 6;
     public int spawnSpeed = 10;
-    private int dataTypesAmount = 3;
 
-    public int counter = 0;
-    public float spawnTime;
+    private int counter = 0;
+    private float spawnTime;
     public float spawnIntervall = 1;
 
     // Use this for initialization
@@ -28,7 +27,7 @@ public class Node_TF_VErsion : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (daten.Count > dataTypesAmount)
+        if (daten.Count > lostDataCount)
         {
             //Game end.
         }
@@ -38,13 +37,14 @@ public class Node_TF_VErsion : MonoBehaviour
             {
                 spawnTime = Time.time + spawnIntervall;
                 counter += 1;
-                int i = (int)Random.Range(1.0f, (float)dataTypesAmount);
+                int i = (int) Random.Range(1.0f, (float) System.Enum.GetNames(typeof(Shape)).Length);
 
-                GameObject datum1 = new GameObject();
-                Data_Script d = datum1.AddComponent<Data_Script>();
-                d.setShape((Shape)i);
-                daten.Add(datum1);
-                datum1.transform.position = this.transform.position;
+                GameObject dataObject = new GameObject();
+                dataObject.AddComponent<Image>();
+                Data_Script d = dataObject.AddComponent<Data_Script>();
+                d.setShape((Shape) i);
+                daten.Add(dataObject);
+                dataObject.transform.position = this.transform.position;
 
 
                 if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
@@ -73,6 +73,5 @@ public class Node_TF_VErsion : MonoBehaviour
 
             default: break;
         }
-
     }
 }
