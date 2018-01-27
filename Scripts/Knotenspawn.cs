@@ -10,7 +10,7 @@ public class Knotenspawn : MonoBehaviour
     public float centerY = 0f;
     public float increasment = 1.1f;
     public string nodeTag;
-
+    public bool running;
 
 
     public GameObject triangle;
@@ -24,15 +24,25 @@ public class Knotenspawn : MonoBehaviour
     private static float maxDistance = 2;
 
     private GameObject[] nodes;
-
-
-
+    
+    private float timeCounter;
 
     private void Start()
     {
-        //Spawn immer nach spawntime ausführen
+        running = true;
+    }
 
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+    private void FixedUpdate()
+    {
+        timeCounter += Time.deltaTime; // 0.02
+        //Spawn immer nach spawntime ausführen
+        
+        if (running && (int)(timeCounter) != 0 && ((int)(timeCounter)) % spawnTime == 0)
+        {
+            Spawn();
+            timeCounter = 0;
+            //InvokeRepeating("Spawn", spawnTime, spawnTime);
+        }
     }
 
     private void Spawn()

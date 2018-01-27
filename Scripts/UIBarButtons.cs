@@ -9,9 +9,11 @@ public class UIBarButtons : MonoBehaviour {
     private float height;
     private float width;
     private Canvas canvas;
+    private int buttonAmount;
     	
 	void Start ()
-    {        
+    {
+        buttonAmount = 8;
         height = 30;
         
         thisButton = GetComponent<Button>();
@@ -27,7 +29,7 @@ public class UIBarButtons : MonoBehaviour {
 
     private void setSize()
     {
-        width = Screen.width/8;
+        width = Screen.width / buttonAmount;
         thisButton.image.rectTransform.sizeDelta = new Vector2(width, height);
     }
 }
