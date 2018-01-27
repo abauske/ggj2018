@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
-    public Sprite NodeType1;
-    public Sprite NodeType2;
-    public Sprite NodeType3;
+    public Sprite Triangle;
+    public Sprite Square;
+    public Sprite Circle;
 
     internal Shape shape;
 
@@ -51,13 +51,13 @@ public class Node : MonoBehaviour
         switch (shape)
         {
             case Shape.TRIANGLE:
-                this.GetComponent<Image>().sprite = NodeType1; // Dreieck
+                this.GetComponent<Image>().sprite = Triangle; // Dreieck
                 break;
             case Shape.SQUARE:
-                this.GetComponent<Image>().sprite = NodeType2; //Viereck
+                this.GetComponent<Image>().sprite = Square; //Viereck
                 break;
             case Shape.CIRCLE:
-                this.GetComponent<Image>().sprite = NodeType3; //Kreis
+                this.GetComponent<Image>().sprite = Circle; //Kreis
                 break;
 
             default: break;

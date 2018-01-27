@@ -10,25 +10,14 @@ public class Data_Script : MonoBehaviour
     public Sprite ImageViereck;
     public Sprite ImageKreis;
 
-
-    public GameObject parent;
-
-
+    
     // Use this for initialization
     void Start()
     {
 
     }
 
-
-    public void setParent(GameObject knoten)
-    {
-        parent = knoten;
-        //Instantiate(this, parent.transform);
-    }
-
-
-
+    
     public void setShape(Shape s)
     {
         shape = s;
