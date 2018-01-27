@@ -4,4 +4,6 @@
     float Weight { get; set; }
 
     bool transferData(Data_Script data);
+
+    bool canTransfer(Shape data);
 }
