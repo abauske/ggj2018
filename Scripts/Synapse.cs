@@ -30,7 +30,7 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
     {
         Weight = Vector3.Distance(from.transform.position, to.transform.position);
         from.AddConnection(this);
-        to.AddConnection(new SynapseConnection { AccessibleNode = from, Weight = this.Weight }); // as long as synapses are non directional
+//        to.AddConnection(new SynapseConnection { AccessibleNode = from, Weight = this.Weight }); // as long as synapses are non directional
     }
 
     void drawConnection()
@@ -49,6 +49,7 @@ public class Synapse : MonoBehaviour, ISynapseConnection {
 
     public bool transferData(Data_Script data)
     {
+        Debug.Log("transfered");
         var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
         destination.addData(data);
         return true;
