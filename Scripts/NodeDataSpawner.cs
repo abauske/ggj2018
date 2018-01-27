@@ -41,7 +41,8 @@ public class NodeDataSpawner : Node
                 dataObject.AddComponent<Image>();
                 Data_Script d = dataObject.AddComponent<Data_Script>();
                 d.setShape((Shape) i);
-                d.setParent(this.gameObject);
+                d.transform.parent = this.transform;
+                
                 daten.Add(dataObject);
                 dataObject.transform.position = this.transform.position;
 
