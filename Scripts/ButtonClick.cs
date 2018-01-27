@@ -7,12 +7,18 @@ public class ButtonClick : MonoBehaviour
 {
     private static SynapseButton selected = SynapseButton.DEFAULT;
     public SynapseButton button;
+    public Image selecor;
 
     void FixedUpdate()
     {
         if (button == selected)
         {
             gameObject.GetComponent<Button>().Select();
+            selecor.enabled = true;
+        }
+        else
+        {
+            selecor.enabled = false;
         }
     }
 

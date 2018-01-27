@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MoneyScript : MonoBehaviour {
-    public int Money;
+    public int Money = 25;
     private Text MoneyText;
     // Use this for initialization
     void Start () {

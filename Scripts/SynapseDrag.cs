@@ -10,6 +10,8 @@ public class SynapseDrag : MonoBehaviour
     private Vector3 dragStart;
     private Node destination;
 
+    private MoneyScript moneyScript;
+
     void OnMouseDown()
     {
         dragStart = gameObject.transform.position;
@@ -25,6 +27,17 @@ public class SynapseDrag : MonoBehaviour
         line.gameObject.SetActive(true);
         line.positionCount = 2;
 
+        if (moneyScript.Money < GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>().price)
+        {
+            line.endColor = Color.red;
+            line.startColor = Color.red;
+        }
+        else
+        {
+            line.endColor = Color.white;
+            line.startColor = Color.white;
+        }
+
         var hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
         if (hit.transform)
         {
@@ -39,6 +52,13 @@ public class SynapseDrag : MonoBehaviour
 
     void OnMouseUp()
     {
+
+        line.gameObject.SetActive(false);
+        var price = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>().price;
+        if (moneyScript.Money < price)
+        {
+            return;
+        }
         if (destination)
         {
             var synapseGameObject = new GameObject("synapse");
@@ -49,13 +69,14 @@ public class SynapseDrag : MonoBehaviour
             synapse.to = destination;
         }
 
-        line.gameObject.SetActive(false);
+        moneyScript.Money -= price;
     }
 
     // Use this for initialization
 	void Start ()
 	{
-    }
+	    moneyScript = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>();
+	}
 	
 	// Update is called once per frame
 	void Update ()
