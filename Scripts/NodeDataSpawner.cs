@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class NodeDataSpawner : Node
 {
-    private Shape shape;
-    public Sprite NodeType1;
-    public Sprite NodeType2;
-    public Sprite NodeType3;
+    
+    
 
     private List<GameObject> daten;
     private int lostDataCount = 6;
@@ -37,12 +35,13 @@ public class NodeDataSpawner : Node
             {
                 spawnTime = Time.time + spawnIntervall;
                 counter += 1;
-                int i = (int) Random.Range(1.0f, (float) System.Enum.GetNames(typeof(Shape)).Length);
+                int i = Random.Range(0,  System.Enum.GetNames(typeof(Shape)).Length);
 
                 GameObject dataObject = new GameObject();
                 dataObject.AddComponent<Image>();
                 Data_Script d = dataObject.AddComponent<Data_Script>();
                 d.setShape((Shape) i);
+                d.setParent(this.gameObject);
                 daten.Add(dataObject);
                 dataObject.transform.position = this.transform.position;
 
@@ -56,22 +55,5 @@ public class NodeDataSpawner : Node
         }
     }
 
-    public void setShape(Shape s)
-    {
-        shape = s;
-        switch (shape)
-        {
-            case Shape.TRIANGLE:
-                this.GetComponent<Image>().sprite = NodeType1; // Dreieck
-                break;
-            case Shape.SQUARE:
-                this.GetComponent<Image>().sprite = NodeType2; //Viereck
-                break;
-            case Shape.CIRCLE:
-                this.GetComponent<Image>().sprite = NodeType3; //Kreis
-                break;
-
-            default: break;
-        }
-    }
+    
 }
