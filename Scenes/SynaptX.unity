@@ -147,6 +147,7 @@ MonoBehaviour:
   node: {fileID: 1173930235658784, guid: 538066705194c5d47b467c7bea99968d, type: 2}
   minDistance: 4
   spawnTime: 2
+  cam: {fileID: 675354051}
 --- !u!4 &353937030
 Transform:
   m_ObjectHideFlags: 0
