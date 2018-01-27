@@ -93,7 +93,7 @@ public class NodeDataSpawner : Node
 
     private void trySendData()
     {
-        for(int i = daten.Count; i >= 0; i--)
+        for(int i = daten.Count - 1; i >= 0; i--)
         {
             var d = daten[i];
             var path = getShortestPathTo(d.shape);
