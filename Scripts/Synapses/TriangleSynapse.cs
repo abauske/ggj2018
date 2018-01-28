@@ -19,4 +19,10 @@ public class TriangleSynapse : Synapse {
         Debug.Log("We have to wait: " + (Time.time - lastTransmissionStart - duration));
         return false;
     }
+
+    public override float getProgress()
+    {
+        float duration = Weight / transferspeed;
+        return (Time.time - lastTransmissionStart) / duration;
+    }
 }

@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour {
     public float speed;
     public Vector3 finish;
     public Action callback;
+    public Synapse synapse;
 
     private float startTime;
 
@@ -19,9 +20,11 @@ public class MovementController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        this.transform.position = transform.position + Vector3.Normalize(way) * speed * Time.deltaTime;
-	    if (Time.time >= startTime + Vector3.Distance(way, Vector3.zero) / speed)
+	void Update ()
+	{
+	    float progress = synapse.getProgress();
+        this.transform.position = finish + way * progress;
+	    if (progress >= 1)
 	    {
 	        callback();
             Destroy(this);

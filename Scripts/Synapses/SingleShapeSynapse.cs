@@ -20,4 +20,10 @@ public class SingleShapeSynapse : Synapse
         return false;
     }
 
+    public override float getProgress()
+    {
+        float duration = Weight / transferspeed;
+        return (Time.time - lastTransmissionStart) / duration;
+    }
+
 }
