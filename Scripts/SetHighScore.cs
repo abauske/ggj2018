@@ -25,7 +25,10 @@ public class SetHighScore : MonoBehaviour {
 
     public void AddPoints(int points)
     {
-        score += points;
+        if (!GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().isEnded())
+        {
+            score += points;
+        }
     }
 
     void setHighScoreText()
