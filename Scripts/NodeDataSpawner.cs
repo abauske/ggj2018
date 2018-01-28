@@ -103,6 +103,11 @@ public class NodeDataSpawner : Node
                 cirkle = 2f;
                 d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
             }
+            else if (36 <= i && i < 46)
+            {
+                cirkle = 2f;
+                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
+            }
             i++;
            
         }
