@@ -50,10 +50,11 @@ public class NodeDataSpawner : Node
                 
                 
                 if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
-                {
-                    spawnIntervall = spawnIntervall * Random.Range(0.98f, 0.99f);
-                    counter = 0;
+                {   
+                    spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
+                    
                 }
+                if (counter % (2 * spawnSpeed) == 0) lostDataCount += 1;
             }
         }
         this.trySendData();
@@ -120,7 +121,7 @@ public class NodeDataSpawner : Node
                 var money = GameObject.FindGameObjectWithTag("Money");
                 if (money != null)
                 {
-                    money.GetComponent<MoneyScript>().AddMoney(10);
+                    money.GetComponent<MoneyScript>().AddMoney(2);
                 }
                 Destroy(d.gameObject);
                 removeData(d);

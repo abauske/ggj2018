@@ -68,9 +68,9 @@ public class SynapseDrag : MonoBehaviour
             var synapse = synapseGameObject.AddComponent<DefaultSynapse>();
             synapse.from = gameObject.GetComponent<Node>();
             synapse.to = destination;
-        }
 
-        moneyScript.Money -= price;
+            moneyScript.Money -= price;
+        }
     }
 
     // Use this for initialization
