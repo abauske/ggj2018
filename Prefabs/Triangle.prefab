@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114601503311592458}
   - component: {fileID: 61974338172664368}
   - component: {fileID: 114175274964398378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Node
   m_Icon: {fileID: 0}
@@ -112,6 +112,7 @@ MonoBehaviour:
   TriangleImg: {fileID: 21300000, guid: 77ab7f71682511f49b9d92e3c3bfd1f4, type: 3}
   SqareImg: {fileID: 21300000, guid: 68a0539c2b22cb84a8d93f08bf8ed933, type: 3}
   CircleImg: {fileID: 21300000, guid: bc365beac4873c84c8aebebd7c6d8832, type: 3}
+  shape: 0
   dataPrefab: {fileID: 1415178320016986, guid: 51b97001a7918744ea8e3017de96cf61, type: 2}
   spawnSpeed: 10
   spawnIntervall: 4
