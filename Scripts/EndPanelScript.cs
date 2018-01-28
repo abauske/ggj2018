@@ -10,10 +10,14 @@ public class EndPanelScript : MonoBehaviour {
     private Text endText;
     private GameObject endPanel;
     private GameObject menuPanel;
+    private Button mainMenuButton;
+    private Button retryButton;
 
     public void endGame()
     {
         endText = GetComponentInChildren<Text>();
+        mainMenuButton = GetComponentInChildren<Button>(true);
+        retryButton = GetComponentInChildren<Button>(true);
         var scoreObj = GameObject.FindGameObjectWithTag("HighScore");
 
         if (endText != null && scoreObj != null && scoreObj.GetComponent<SetHighScore>() != null)
