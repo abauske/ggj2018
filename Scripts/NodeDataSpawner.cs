@@ -8,12 +8,13 @@ public class NodeDataSpawner : Node
 {
     public GameObject dataPrefab;
     private List<Data_Script> daten = new List<Data_Script>();
-    private int lostDataCount = 8;
+    private int lostDataCount = 30;
     public int spawnSpeed = 10;
     private double Vectorlength = 0.5;
     private int counter = 0;
     private float spawnTime;
     public float spawnIntervall = 6;
+    
     
     
     private void Start()
@@ -54,25 +55,26 @@ public class NodeDataSpawner : Node
                     spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
                     
                 }
-                if (counter % (2 * spawnSpeed) == 0) lostDataCount += 1;
+                if (counter % (3 * spawnSpeed) == 0) lostDataCount += 1;
             }
         }
         this.trySendData();
     }
 
     
-    public Vector3 arangeData(float i)
+    public Vector3 arangeData(float i, float cirkle, int datenAmountOnCirkle)
     {
+        
         float x = 0;
         float y = 0;
 
-        float winkel = (float) (2 * System.Math.PI) / lostDataCount;
+        float winkel = (float) (2 * System.Math.PI) / (datenAmountOnCirkle );
       
         winkel = winkel * (float)(i) ;
         
 
-        x = (float)(Vectorlength * (System.Math.Cos(winkel)));
-        y = (float)(Vectorlength * (System.Math.Sin(winkel)));
+        x = (float)(cirkle * (Vectorlength * (System.Math.Cos(winkel))));
+        y = (float)(cirkle * (Vectorlength * (System.Math.Sin(winkel))));
         
         return new Vector3(x,y,0);
     }
@@ -80,10 +82,24 @@ public class NodeDataSpawner : Node
     public void rearangeData()
     {
         int i = 0;
+        float cirkle = 1f;
         foreach (Data_Script d in daten)
         {
-            d.transform.position = this.transform.position + arangeData(i);
+           if(i <= 7) d.transform.position = this.transform.position + arangeData(i, cirkle, 8);
+           else if (8 <= i && i < 20)
+            {
+                cirkle = 1.5f;
+                d.transform.position = this.transform.position + arangeData(i, cirkle, 12);
+                
+                
+            }
+            else if(20 <= i && i < 36)
+            {
+                cirkle = 2f;
+                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
+            }
             i++;
+           
         }
 
     }
