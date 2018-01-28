@@ -13,7 +13,8 @@ public class Knotenspawn : MonoBehaviour
     public string nodeTag;
     public bool running;
     public GameObject node;
-       
+    public bool SideMenuBar = false;
+
 
     public float minDistance;
 
@@ -58,7 +59,7 @@ public class Knotenspawn : MonoBehaviour
         float ranX = 0;
         float ranY = 0;
         int counter = 0;
-
+        
 
         while (!success)
         {
@@ -104,7 +105,14 @@ public class Knotenspawn : MonoBehaviour
                 {
                     success = false;
                 }
-                if ((ranY<0 && (ranY - 1 < -1 * cam.orthographicSize)) || (ranX<0 && (ranX < -1.8f * cam.orthographicSize)))
+
+                float bar = GameObject.FindGameObjectWithTag("barPanel").gameObject.GetComponent<RectTransform>().rect.height;
+                if (SideMenuBar)
+                    bar = 0;
+
+
+
+                if ((ranY<0 && (ranY - 1 < (-1 * cam.orthographicSize) + bar) || (ranX<0 && (ranX < -1.8f * cam.orthographicSize))))
                 {
                     success = false;
                 }
