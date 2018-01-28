@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 15
 --- !u!222 &28652699
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2126,7 +2126,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 15
 --- !u!222 &450334782
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3258,6 +3258,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &893898440
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1274.5566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1810.1847
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -51.822876
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720303334593060, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179914527384754, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 82275194135359942, guid: 2759e50a27b0990499f385685124b1e4,
+        type: 2}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82275194135359942, guid: 2759e50a27b0990499f385685124b1e4,
+        type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &921997001
 GameObject:
   m_ObjectHideFlags: 0
@@ -6538,7 +6594,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '5
+  m_Text: '15
 
 '
 --- !u!222 &1593255241
@@ -6748,7 +6804,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20
+  m_Text: '25
+
+'
 --- !u!222 &1674595096
 CanvasRenderer:
   m_ObjectHideFlags: 0
