@@ -8,7 +8,7 @@ public class NodeDataSpawner : Node
 {
     public GameObject dataPrefab;
     private List<Data_Script> daten = new List<Data_Script>();
-    private int lostDataCount = 8;
+    private int lostDataCount = 30;
     public int spawnSpeed = 10;
     private double Vectorlength = 0.5;
     private int counter = 0;
@@ -55,12 +55,16 @@ public class NodeDataSpawner : Node
                     spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
                     
                 }
+<<<<<<< HEAD
+                if (counter % (3 * spawnSpeed) == 0) lostDataCount += 1;
+=======
 
                 if (counter % (2 * spawnSpeed) == 0)
                 {
                     lostDataCount += 1;
                     print(lostDataCount);
                 }
+>>>>>>> 720737596ef5925e0d33da9a5bc7b2927411d0d2
             }
         }
         this.trySendData();
@@ -99,11 +103,6 @@ public class NodeDataSpawner : Node
                 
             }
             else if(20 <= i && i < 36)
-            {
-                cirkle = 2f;
-                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
-            }
-            else if (36 <= i && i < 46)
             {
                 cirkle = 2f;
                 d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
