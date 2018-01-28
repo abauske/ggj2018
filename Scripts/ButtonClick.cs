@@ -11,35 +11,41 @@ public class ButtonClick : MonoBehaviour
 
     void FixedUpdate()
     {
+        print(selected);
         if (button == selected)
         {
             gameObject.GetComponent<Button>().Select();
-            selecor.enabled = true;
+            selecor.color = Color.white;
         }
         else
         {
-            selecor.enabled = false;
+            selecor.color = Color.black;
         }
     }
 
     public void setDefaultSyn()
     {
+        print("set default");
         selected = SynapseButton.DEFAULT;
     }
     public void setFastSyn()
     {
+        print("set FAST");
         selected = SynapseButton.FAST;
     }
     public void setTriangleSyn()
     {
+        print("set TRIANGLE");
         selected = SynapseButton.TRIANGLE;
     }
     public void setCircleSyn()
     {
+        print("set CIRCLE");
         selected = SynapseButton.CIRCLE;
     }
     public void setSquareSyn()
     {
+        print("set SQUARE");
         selected = SynapseButton.SQUARE;
     }
 }
