@@ -27,7 +27,8 @@ public class SynapseDrag : MonoBehaviour
         line.gameObject.SetActive(true);
         line.positionCount = 2;
 
-        if (moneyScript.Money < GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>().price)
+        var cam = GameObject.FindGameObjectWithTag("MainCamera");
+        if (cam != null && moneyScript.Money < cam.GetComponent<SynapseSelection>().price)
         {
             line.endColor = Color.red;
             line.startColor = Color.red;
@@ -59,7 +60,8 @@ public class SynapseDrag : MonoBehaviour
         {
             return;
         }
-        if (destination)
+        var from = gameObject.GetComponent<Node>();
+        if (destination != null && destination != from)
         {
             var synapseGameObject = new GameObject("synapse");
 

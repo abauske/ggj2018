@@ -8,7 +8,7 @@ public class NodeDataSpawner : Node
 {
     public GameObject dataPrefab;
     private List<Data_Script> daten = new List<Data_Script>();
-    private int lostDataCount = 6;
+    private int lostDataCount = 8;
     public int spawnSpeed = 10;
     private double Vectorlength = 0.5;
     private int counter = 0;
@@ -122,41 +122,17 @@ public class NodeDataSpawner : Node
                 {
                     money.GetComponent<MoneyScript>().AddMoney(10);
                 }
-                MoveDataOnce(path, d);
-                //Destroy(d.gameObject);
+                Destroy(d.gameObject);
                 removeData(d);
             }
             else if (path.Count > 1)
             {
-                if (path[1].connection.transferData(d))
+                if (path[1].connection.transferData(d, path[1]))
                 {
                     removeData(d);
                 }
             }
         }
-    }
-
-    public void MoveDataOnce(List<IGraphSearch> path, Data_Script d)
-    {
-        Vector3 ownCoords = transform.transform.position;
-        Vector3 connCoords = path[1].connection.AccessibleNode.transform.transform.position;
-
-        Vector3 way = connCoords - ownCoords;
-        d.gameObject.AddComponent<MovementController>();
-        d.gameObject.GetComponent<MovementController>().way = way;
-
-        d.gameObject.GetComponent<MovementController>().finish = connCoords;
-
-        float multiplyer = path[1].CurrentNode.GetComponent<DefaultSynapse>().speedMultiplier;
-
-        d.gameObject.GetComponent<MovementController>().speed = path[0].connection.Weight / (4*multiplyer);
-
-        
-        
-        
-        
-
-
     }
 
     
