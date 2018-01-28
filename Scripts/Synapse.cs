@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Synapse : MonoBehaviour, ISynapseConnection {
@@ -17,6 +18,8 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
     private LineRenderer line;
 
     protected float lastTransmissionStart;
+
+    private bool isTransfering = false;
 
     // Use this for initialization
     public void Start ()
@@ -52,8 +55,9 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
     public bool transferData(Data_Script data, IGraphSearch transfer)
     {
-        if (this.canTransfer(data.shape))
+        if (!isTransfering && this.canTransfer(data.shape))
         {
+            isTransfering = true;
             lastTransmissionStart = Time.time;
 
             Vector3 ownCoords = transfer.CurrentNode.transform.position;
@@ -70,6 +74,7 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
             data.gameObject.GetComponent<MovementController>().callback = () =>
             {
+                isTransfering = false;
                 var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
                 destination.addData(data);
             };
@@ -80,10 +85,6 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
     public abstract float getProgress();
 
-
-    public void MoveDataOnce(List<IGraphSearch> path, Data_Script d)
-    {
-    }
 
     public abstract bool canTransfer(Shape data);
 }
