@@ -20,4 +20,11 @@ public class DefaultSynapse : Synapse
 //        Debug.Log("We have to wait: " + (Time.time - lastTransmissionStart - duration));
         return false;
     }
+
+    public override float getProgress()
+    {
+        float transferspeed = defaultSpeed * speedMultiplier;
+        float duration = Weight / transferspeed;
+        return (Time.time - lastTransmissionStart) / duration;
+    }
 }

@@ -56,16 +56,13 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
         {
             lastTransmissionStart = Time.time;
 
-            print(transfer.PathLength);
-
             Vector3 ownCoords = transfer.CurrentNode.transform.position;
-            print(ownCoords);
             Vector3 connCoords = data.transform.position;
-            print(connCoords);
 
             Vector3 way = ownCoords - connCoords;
             data.gameObject.AddComponent<MovementController>();
             data.gameObject.GetComponent<MovementController>().way = way;
+            data.gameObject.GetComponent<MovementController>().synapse = this;
 
             data.gameObject.GetComponent<MovementController>().finish = connCoords;
             var speed = 4;
@@ -80,6 +77,8 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
         }
         return false;
     }
+
+    public abstract float getProgress();
 
 
     public void MoveDataOnce(List<IGraphSearch> path, Data_Script d)

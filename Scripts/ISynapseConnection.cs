@@ -6,4 +6,6 @@
     bool transferData(Data_Script data, IGraphSearch transfer);
 
     bool canTransfer(Shape data);
+
+    float getProgress();
 }
