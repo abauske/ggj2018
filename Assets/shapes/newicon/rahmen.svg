@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.0 r15299"
+   sodipodi:docname="rahmen.svg"
+   inkscape:export-filename="C:\Users\FoersterD\Documents\git\ggj\ggj2018\Assets\shapes\newicon\arrow1.png"
+   inkscape:export-xdpi="13.6"
+   inkscape:export-ydpi="13.6">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="303.93964"
+     inkscape:cy="561.74323"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-object-midpoints="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.34693173;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 135.78906 316.53125 C 97.2796 316.53125 66.277344 347.53351 66.277344 386.04297 L 66.277344 757.92969 C 66.277344 796.43915 97.2796 827.44141 135.78906 827.44141 L 507.67773 827.44141 C 546.1872 827.44141 577.18945 796.43915 577.18945 757.92969 L 577.18945 386.04297 C 577.18945 347.53351 546.1872 316.53125 507.67773 316.53125 L 135.78906 316.53125 z M 138.57031 346.80469 L 510.00195 346.80469 C 532.16126 346.80469 550 364.64539 550 386.80469 L 550 758.23438 C 550 780.39368 532.16126 798.23438 510.00195 798.23438 L 138.57031 798.23438 C 116.41101 798.23438 98.572266 780.39368 98.572266 758.23438 L 98.572266 386.80469 C 98.572266 364.64539 116.41101 346.80469 138.57031 346.80469 z "
+       transform="scale(0.26458333)"
+       id="rect4495"
+       inkscape:export-xdpi="13.144022"
+       inkscape:export-ydpi="13.144022" />
+  </g>
+</svg>
