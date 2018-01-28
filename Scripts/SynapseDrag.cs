@@ -55,8 +55,8 @@ public class SynapseDrag : MonoBehaviour
     {
 
         line.gameObject.SetActive(false);
-        var price = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>().price;
-        if (moneyScript.Money < price)
+        var cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>();
+        if (moneyScript.Money < cam.price)
         {
             return;
         }
@@ -65,18 +65,21 @@ public class SynapseDrag : MonoBehaviour
         {
             var synapseGameObject = new GameObject("synapse");
 
-            var synapse = synapseGameObject.AddComponent<DefaultSynapse>();
+            var synapse = (Synapse)synapseGameObject.AddComponent(cam.syn);
             synapse.from = gameObject.GetComponent<Node>();
             synapse.to = destination;
 
-            moneyScript.Money -= price;
+            moneyScript.Money -= cam.price;
         }
     }
 
     // Use this for initialization
 	void Start ()
 	{
-	    moneyScript = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>();
+        if(GameObject.FindGameObjectWithTag("Money") != null)
+	    {
+	        moneyScript = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>();
+        }
 	}
 	
 	// Update is called once per frame

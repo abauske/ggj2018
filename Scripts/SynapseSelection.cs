@@ -16,22 +16,22 @@ public class SynapseSelection : MonoBehaviour {
     public void setFastSyn()
     {
         syn = typeof(FastSynapse);
-        price = 60;
+        price = 45;
     }
     public void setTriangleSyn()
     {
         syn = typeof(TriangleSynapse);
-        price = 30;
+        price = 5;
     }
     public void setCircleSyn()
     {
         syn = typeof(CircleSynapse);
-        price = 30;
+        price = 5;
     }
     public void setSquareSyn()
     {
         syn = typeof(SqareSynapse);
-        price = 30;
+        price = 5;
     }
 
 }
