@@ -76,7 +76,9 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
             {
                 isTransfering = false;
                 var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
+                
                 destination.addData(data);
+
             };
             return true;
         }
