@@ -16,6 +16,7 @@ public class MovementController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+        
 	    startTime = Time.time;
     }
 	
@@ -26,7 +27,9 @@ public class MovementController : MonoBehaviour {
         this.transform.position = finish + way * progress;
 	    if (progress >= 1)
 	    {
-	        callback();
+            
+            callback();
+            gameObject.GetComponent<PlayMusic>().PlaySound();
             Destroy(this);
         }
 	        
