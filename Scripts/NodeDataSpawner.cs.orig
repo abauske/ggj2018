@@ -55,12 +55,16 @@ public class NodeDataSpawner : Node
                     spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
                     
                 }
+<<<<<<< HEAD
+                if (counter % (3 * spawnSpeed) == 0) lostDataCount += 1;
+=======
 
                 if (counter % (2 * spawnSpeed) == 0)
                 {
                     lostDataCount += 1;
                     print(lostDataCount);
                 }
+>>>>>>> 720737596ef5925e0d33da9a5bc7b2927411d0d2
             }
         }
         this.trySendData();
