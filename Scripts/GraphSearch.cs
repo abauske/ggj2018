@@ -29,7 +29,7 @@ public class GraphSearch : IGraphSearch {
         {
             if (!con.canTransfer(shape))
             {
-                break;
+                continue;
             }
             var existing = reachable.Find(r => r.CurrentNode == con.AccessibleNode);
             var searchObject = new GraphSearch

@@ -10,6 +10,8 @@ public class SynapseDrag : MonoBehaviour
     private Vector3 dragStart;
     private Node destination;
 
+    private MoneyScript moneyScript;
+
     void OnMouseDown()
     {
         dragStart = gameObject.transform.position;
@@ -25,6 +27,18 @@ public class SynapseDrag : MonoBehaviour
         line.gameObject.SetActive(true);
         line.positionCount = 2;
 
+        var cam = GameObject.FindGameObjectWithTag("MainCamera");
+        if (cam != null && moneyScript.Money < cam.GetComponent<SynapseSelection>().price)
+        {
+            line.endColor = Color.red;
+            line.startColor = Color.red;
+        }
+        else
+        {
+            line.endColor = Color.white;
+            line.startColor = Color.white;
+        }
+
         var hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
         if (hit.transform)
         {
@@ -39,23 +53,31 @@ public class SynapseDrag : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (destination)
+
+        line.gameObject.SetActive(false);
+        var price = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>().price;
+        if (moneyScript.Money < price)
+        {
+            return;
+        }
+        var from = gameObject.GetComponent<Node>();
+        if (destination != null && destination != from)
         {
             var synapseGameObject = new GameObject("synapse");
-            
-            var synapse = (Synapse) synapseGameObject.AddComponent(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>().syn);
-            print(synapse);
+
+            var synapse = synapseGameObject.AddComponent<DefaultSynapse>();
             synapse.from = gameObject.GetComponent<Node>();
             synapse.to = destination;
         }
 
-        line.gameObject.SetActive(false);
+        moneyScript.Money -= price;
     }
 
     // Use this for initialization
 	void Start ()
 	{
-    }
+	    moneyScript = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>();
+	}
 	
 	// Update is called once per frame
 	void Update ()

@@ -8,7 +8,7 @@ public class NodeDataSpawner : Node
 {
     public GameObject dataPrefab;
     private List<Data_Script> daten = new List<Data_Script>();
-    private int lostDataCount = 6;
+    private int lostDataCount = 8;
     public int spawnSpeed = 10;
     private double Vectorlength = 0.5;
     private int counter = 0;
@@ -127,7 +127,7 @@ public class NodeDataSpawner : Node
             }
             else if (path.Count > 1)
             {
-                if (path[1].connection.transferData(d))
+                if (path[1].connection.transferData(d, path[1]))
                 {
                     removeData(d);
                 }
