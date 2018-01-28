@@ -1613,6 +1613,7 @@ MonoBehaviour:
   nodeTag: Node
   running: 0
   node: {fileID: 1324407990277968, guid: 538066705194c5d47b467c7bea99968d, type: 2}
+  SideMenuBar: 0
   minDistance: 4
   spawnTime: 10
   cam: {fileID: 675354051}
@@ -6963,7 +6964,7 @@ RectTransform:
   m_GameObject: {fileID: 1834690812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7400555, y: 0.7400555, z: 0.7400555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1590794808}
   m_RootOrder: 2
@@ -6994,7 +6995,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
