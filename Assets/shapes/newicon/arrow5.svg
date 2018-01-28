@@ -15,10 +15,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.0 r15299"
-   sodipodi:docname="arrow1.svg"
-   inkscape:export-filename="C:\Users\FoersterD\Documents\git\ggj\ggj2018\Assets\shapes\newicon\arrow1.png"
-   inkscape:export-xdpi="13.6"
-   inkscape:export-ydpi="13.6">
+   sodipodi:docname="arrow5.svg"
+   inkscape:export-filename="C:\Users\FoersterD\Documents\git\ggj\ggj2018\Assets\shapes\newicon\arrow5.png"
+   inkscape:export-xdpi="13.598742"
+   inkscape:export-ydpi="13.598742">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="202.78787"
-     inkscape:cy="554.90946"
+     inkscape:zoom="1"
+     inkscape:cx="162.81115"
+     inkscape:cy="561.02893"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -38,7 +38,9 @@
      inkscape:window-height="706"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-smooth-nodes="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -62,7 +64,7 @@
        height="119.44047"
        x="26.080357"
        y="91.758926"
-       ry="10.583" />
+       ry="10.583333" />
     <path
        inkscape:connector-curvature="0"
        id="path4508"
@@ -144,5 +146,24 @@
        id="rect4491"
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.09494279;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        transform="rotate(90)" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#6b6d76;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.06953012;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path4485"
+       sodipodi:sides="3"
+       sodipodi:cx="70.583998"
+       sodipodi:cy="173.59118"
+       sodipodi:r1="38.1007"
+       sodipodi:r2="19.05035"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:flatsided="true"
+       inkscape:rounded="-3.46945e-018"
+       inkscape:randomized="0"
+       d="m 103.58017,192.64154 -65.992345,0 L 70.584,135.49049 Z"
+       inkscape:transform-center-y="-36.000664"
+       inkscape:transform-center-x="-7.9731749e-006"
+       inkscape:export-xdpi="12"
+       inkscape:export-ydpi="12" />
   </g>
 </svg>
