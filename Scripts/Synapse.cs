@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Synapse : MonoBehaviour, ISynapseConnection {
@@ -17,9 +16,13 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
     private LineRenderer line;
 
+    protected float lastTransmissionStart;
+
     // Use this for initialization
     public void Start ()
     {
+        lastTransmissionStart = Time.time;
+
         line = gameObject.AddComponent<LineRenderer>();
         drawConnection();
 
@@ -39,14 +42,49 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
         line.positionCount = 2;
         line.SetPosition(0, from.transform.position);
         line.SetPosition(1, to.transform.position);
-        line.startColor = Color.black;
-        line.endColor = Color.black;
+        line.startColor = Color.white;
+        line.endColor = Color.white;
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;
-        line.material.color = Color.black;
+        line.material.color = Color.white;
         line.numCornerVertices = 10;
     }
 
-    public abstract bool transferData(Data_Script data);
+    public bool transferData(Data_Script data, IGraphSearch transfer)
+    {
+        if (this.canTransfer(data.shape))
+        {
+            lastTransmissionStart = Time.time;
+
+            print(transfer.PathLength);
+
+            Vector3 ownCoords = transfer.CurrentNode.transform.position;
+            print(ownCoords);
+            Vector3 connCoords = data.transform.position;
+            print(connCoords);
+
+            Vector3 way = ownCoords - connCoords;
+            data.gameObject.AddComponent<MovementController>();
+            data.gameObject.GetComponent<MovementController>().way = way;
+
+            data.gameObject.GetComponent<MovementController>().finish = connCoords;
+            var speed = 4;
+            data.gameObject.GetComponent<MovementController>().speed = speed;
+
+            data.gameObject.GetComponent<MovementController>().callback = () =>
+            {
+                var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
+                destination.addData(data);
+            };
+            return true;
+        }
+        return false;
+    }
+
+
+    public void MoveDataOnce(List<IGraphSearch> path, Data_Script d)
+    {
+    }
+
     public abstract bool canTransfer(Shape data);
 }

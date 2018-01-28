@@ -2,24 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class NodeDataSpawner : Node
 {
     public GameObject dataPrefab;
     private List<Data_Script> daten = new List<Data_Script>();
-    private int lostDataCount = 6;
+    private int lostDataCount = 8;
     public int spawnSpeed = 10;
     private double Vectorlength = 0.5;
     private int counter = 0;
     private float spawnTime;
     public float spawnIntervall = 6;
+    
+    
+    private void Start()
+    {
 
+    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (daten.Count >= lostDataCount)
         {
-            
+            GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame();
         }
         else
         {
@@ -42,10 +50,11 @@ public class NodeDataSpawner : Node
                 
                 
                 if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
-                {
-                    spawnIntervall = spawnIntervall * Random.Range(0.98f, 0.99f);
-                    counter = 0;
+                {   
+                    spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
+                    
                 }
+                if (counter % (2 * spawnSpeed) == 0) lostDataCount += 1;
             }
         }
         this.trySendData();
@@ -93,24 +102,33 @@ public class NodeDataSpawner : Node
 
     private void trySendData()
     {
-        for(int i = daten.Count; i >= 0; i--)
+        for(int i = daten.Count - 1; i >= 0; i--)
         {
             var d = daten[i];
             var path = getShortestPathTo(d.shape);
             if (path == null)
             {
-                break;
+                continue;
             }
 
             if (path.Count == 1)
             {
-                Debug.Log("destination reached");
+                var highScore = GameObject.FindGameObjectWithTag("HighScore");
+                if (highScore != null)
+                {
+                    highScore.GetComponent<SetHighScore>().AddPoints(100);
+                }
+                var money = GameObject.FindGameObjectWithTag("Money");
+                if (money != null)
+                {
+                    money.GetComponent<MoneyScript>().AddMoney(2);
+                }
                 Destroy(d.gameObject);
                 removeData(d);
             }
             else if (path.Count > 1)
             {
-                if(path[1].connection.transferData(d))
+                if (path[1].connection.transferData(d, path[1]))
                 {
                     removeData(d);
                 }

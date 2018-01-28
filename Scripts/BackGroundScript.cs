@@ -11,6 +11,9 @@ public class BackGroundScript : MonoBehaviour {
     void Start()
     {
         imageComp = GetComponent<Image>();
-        imageComp.sprite = backSprite;
+        if (imageComp)
+        {
+            imageComp.sprite = backSprite;
+        }
     }
 }

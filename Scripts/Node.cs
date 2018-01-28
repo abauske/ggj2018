@@ -9,7 +9,7 @@ public class Node : MonoBehaviour
     public Sprite SqareImg;
     public Sprite CircleImg;
 
-    internal Shape shape;
+    public Shape shape;
 
     protected List<ISynapseConnection> Connections = new List<ISynapseConnection>();
 
