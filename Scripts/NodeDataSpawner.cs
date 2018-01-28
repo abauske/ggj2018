@@ -15,11 +15,12 @@ public class NodeDataSpawner : Node
     private float spawnTime;
     public float spawnIntervall = 6;
     
-    
+    private float looseDelay = 0;
+    private Vector3 initialScale;
     
     private void Start()
     {
-
+        initialScale = gameObject.transform.localScale;
     }
     
     // Update is called once per frame
@@ -28,7 +29,12 @@ public class NodeDataSpawner : Node
 
         if (daten.Count >= lostDataCount)
         {
-            GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame();
+            looseDelay += Time.deltaTime;
+            gameObject.transform.localScale *= looseDelay / 10;
+            if (looseDelay > 5)
+            {
+                GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame();
+            }
         }
         else
         {
@@ -60,6 +66,18 @@ public class NodeDataSpawner : Node
                 {
                     lostDataCount += 1;
                     print(lostDataCount);
+                }
+                
+
+
+                if (looseDelay > 0)
+                {
+                    looseDelay -= Time.deltaTime;
+                    gameObject.transform.localScale /= looseDelay / 10;
+                }
+                else
+                {
+                    gameObject.transform.localScale = initialScale;
                 }
             }
         }
