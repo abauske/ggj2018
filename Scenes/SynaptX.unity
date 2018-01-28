@@ -1628,8 +1628,13 @@ MonoBehaviour:
   running: 0
   node: {fileID: 1324407990277968, guid: 538066705194c5d47b467c7bea99968d, type: 2}
   SideMenuBar: 0
+<<<<<<< HEAD
+  minDistance: 4
+  spawnTime: 10
+=======
   minDistance: 1.6
   spawnTime: 1
+>>>>>>> 2b48a0104a865b9bf0b1d90ff0dd91ca235fc455
   cam: {fileID: 675354051}
 --- !u!4 &353937030
 Transform:
@@ -7113,6 +7118,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+>>>>>>> 2b48a0104a865b9bf0b1d90ff0dd91ca235fc455
   m_Children: []
   m_Father: {fileID: 673959703}
   m_RootOrder: 0
