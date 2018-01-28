@@ -112,7 +112,7 @@ public class Knotenspawn : MonoBehaviour
 
 
 
-                if ((ranY<0 && (ranY - 1 < (-1 * cam.orthographicSize) + bar) || (ranX<0 && (ranX < -1.8f * cam.orthographicSize)))
+                if ((ranY<0 && (ranY - 1 < (-1 * cam.orthographicSize) + bar) || (ranX<0 && (ranX < -1.8f * cam.orthographicSize))))
                 {
                     success = false;
                 }
