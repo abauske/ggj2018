@@ -13,8 +13,14 @@ public class EndPanelScript : MonoBehaviour {
     private Button mainMenuButton;
     private Button retryButton;
 
+    private bool ended = false;
+
     public void endGame()
     {
+        if (ended)
+        {
+            return;
+        }
         endText = GetComponentInChildren<Text>();
         mainMenuButton = GetComponentInChildren<Button>(true);
         retryButton = GetComponentInChildren<Button>(true);
@@ -37,5 +43,12 @@ public class EndPanelScript : MonoBehaviour {
             var child = transform.GetChild(i);
             child.gameObject.SetActive(true);
         }
+
+        ended = true;
+    }
+
+    public bool isEnded()
+    {
+        return ended;
     }
 }

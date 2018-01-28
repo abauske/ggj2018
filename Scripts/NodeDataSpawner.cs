@@ -29,11 +29,13 @@ public class NodeDataSpawner : Node
 
         if (daten.Count >= lostDataCount)
         {
-            looseDelay += Time.deltaTime;
-            gameObject.transform.localScale *= looseDelay / 10;
             if (looseDelay > 5)
             {
                 GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame();
+            } else
+            {
+                looseDelay += Time.deltaTime;
+                gameObject.transform.localScale = initialScale * (looseDelay / 10 + 1);
             }
         }
         else
@@ -65,7 +67,6 @@ public class NodeDataSpawner : Node
                 if (counter % (2 * spawnSpeed) == 0)
                 {
                     lostDataCount += 1;
-                    print(lostDataCount);
                 }
                 
 
@@ -73,7 +74,7 @@ public class NodeDataSpawner : Node
                 if (looseDelay > 0)
                 {
                     looseDelay -= Time.deltaTime;
-                    gameObject.transform.localScale /= looseDelay / 10;
+                    gameObject.transform.localScale = initialScale * (looseDelay / 10 + 1);
                 }
                 else
                 {
@@ -135,6 +136,7 @@ public class NodeDataSpawner : Node
     public void addData(Data_Script newData)
     {
         daten.Add(newData);
+        newData.gameObject.transform.SetParent(transform);
         rearangeData();
     }
 
@@ -169,13 +171,17 @@ public class NodeDataSpawner : Node
                 }
                 Destroy(d.gameObject);
                 removeData(d);
+                break;
             }
             else if (path.Count > 1)
             {
                 if (path[1].connection.transferData(d, path[1]))
                 {
                     removeData(d);
+                    break;
                 }
+
+                break;
             }
         }
     }
