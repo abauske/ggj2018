@@ -49,6 +49,7 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
         line.endColor = Color.white;
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;
+        line.material = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MaterialScript>().LineMaterial;
         line.material.color = Color.white;
         line.numCornerVertices = 10;
     }
