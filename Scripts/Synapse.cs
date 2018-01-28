@@ -71,7 +71,9 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
             data.gameObject.GetComponent<MovementController>().callback = () =>
             {
                 var destination = AccessibleNode.gameObject.GetComponent<NodeDataSpawner>();
+                
                 destination.addData(data);
+
             };
             return true;
         }

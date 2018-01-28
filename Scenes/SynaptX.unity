@@ -3198,6 +3198,11 @@ Prefab:
       propertyPath: Priority
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82275194135359942, guid: 2759e50a27b0990499f385685124b1e4,
+        type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2759e50a27b0990499f385685124b1e4, type: 2}
   m_IsPrefabParent: 0
