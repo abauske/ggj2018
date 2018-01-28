@@ -8,7 +8,7 @@ public class NodeDataSpawner : Node
 {
     public GameObject dataPrefab;
     private List<Data_Script> daten = new List<Data_Script>();
-    private int lostDataCount = 30;
+    private int lostDataCount = 8;
     public int spawnSpeed = 10;
     private double Vectorlength = 0.5;
     private int counter = 0;
