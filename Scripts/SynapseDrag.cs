@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public class SynapseDrag : MonoBehaviour
 {
     public LineRenderer line;
@@ -10,7 +11,7 @@ public class SynapseDrag : MonoBehaviour
     private Vector3 dragStart;
     private Node destination;
 
-    private MoneyScript moneyScript;
+    public MoneyScript moneyScript;
 
     void OnMouseDown()
     {
@@ -27,8 +28,8 @@ public class SynapseDrag : MonoBehaviour
         line.gameObject.SetActive(true);
         line.positionCount = 2;
 
-        var cam = GameObject.FindGameObjectWithTag("MainCamera");
-        if (cam != null && moneyScript.Money < cam.GetComponent<SynapseSelection>().price)
+        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+        if (cam != null && (moneyScript.Money < cam.GetComponent<SynapseSelection>().price))
         {
             line.endColor = Color.red;
             line.startColor = Color.red;

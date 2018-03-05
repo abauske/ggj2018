@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public class MovementController : MonoBehaviour {
 
     public Vector3 way;
@@ -29,7 +30,7 @@ public class MovementController : MonoBehaviour {
 	    {
             
             callback();
-            gameObject.GetComponent<PlayMusic>().PlaySound();
+            //gameObject.GetComponent<PlayMusic>().PlaySound();
             Destroy(this);
         }
 	        

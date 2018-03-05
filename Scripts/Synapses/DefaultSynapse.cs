@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+//Filip
 public class DefaultSynapse : Synapse
 {
     public float speedMultiplier = 1;

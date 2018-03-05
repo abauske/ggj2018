@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public interface IGraphSearch
 {
     IGraphSearch Predecessor { get; set; }
@@ -11,5 +12,5 @@ public interface IGraphSearch
     Boolean Visited { get; set; }
     ISynapseConnection connection { get; set; }
 
-List<IGraphSearch> shortestPath(Shape shape, List<IGraphSearch> reachable);
+    List<IGraphSearch> shortestPath(Shape shape, List<IGraphSearch> reachable);
 }

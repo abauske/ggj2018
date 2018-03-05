@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Filip
 public class BackGroundScript : MonoBehaviour {
 
     Image imageComp;

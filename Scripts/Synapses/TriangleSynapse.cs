@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public class TriangleSynapse : Synapse {
 
     private float transferspeed = 8;

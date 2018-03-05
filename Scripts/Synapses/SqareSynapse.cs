@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public class SqareSynapse : Synapse {
 
     private float transferspeed = 8;

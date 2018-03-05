@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: 278ab82a724ee8b4dbe3431fcc4e5540
-timeCreated: 1517041339
+guid: b800013d8c801484dbbb662b69803bfa
+timeCreated: 1519758473
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - ImageDreieck: {instanceID: 0}
-  - ImageViereck: {instanceID: 0}
-  - ImageKreis: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GraphSearch : IGraphSearch {
+//Filip
+public class GraphSearch : IGraphSearch
+{
     public IGraphSearch Predecessor { get; set; }
     public float PathLength { get; set; }
     public Node CurrentNode { get; set; }
@@ -21,10 +23,10 @@ public class GraphSearch : IGraphSearch {
         Visited = true;
         if (CurrentNode.shape == shape)
         {
-            path = new List<IGraphSearch> {this};
+            path = new List<IGraphSearch> { this };
             return path;
         }
-        
+
         foreach (var con in CurrentNode.getConnections())
         {
             if (!con.canTransfer(shape))
@@ -43,7 +45,8 @@ public class GraphSearch : IGraphSearch {
             if (existing == null)
             {
                 reachable.Add(searchObject);
-            } else if (existing.PathLength > PathLength + con.Weight)
+            }
+            else if (existing.PathLength > PathLength + con.Weight)
             {
                 var index = reachable.IndexOf(existing);
                 if (index >= 0)
@@ -53,7 +56,7 @@ public class GraphSearch : IGraphSearch {
             }
 
         }
-        
+
         var closestNextNode = getClosest(reachable);
         if (closestNextNode == null)
         {

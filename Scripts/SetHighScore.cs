@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Filip
 public class SetHighScore : MonoBehaviour {
 
     public int score;
@@ -25,10 +26,8 @@ public class SetHighScore : MonoBehaviour {
 
     public void AddPoints(int points)
     {
-        if (!GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().isEnded())
-        {
-            score += points;
-        }
+
+        score += points;
     }
 
     void setHighScoreText()

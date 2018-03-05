@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public class HighscoreCounter : MonoBehaviour {
     private int Highscore;
     private int Alltime;

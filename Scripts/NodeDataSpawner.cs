@@ -4,151 +4,99 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class NodeDataSpawner : Node
-{
+//Filip
+public class NodeDataSpawner : Node {
+
     public GameObject dataPrefab;
-    private List<Data_Script> daten = new List<Data_Script>();
-    private int lostDataCount = 8;
-    public int spawnSpeed = 10;
+    private List<Data_Script> daten = new List<Data_Script>();      // Liste der Daten, die ein Knoten haelt
+    private int lostDataCount = 20;                                  // So viele Daten kann ein Knoten halten, waechst mit der Zeit
+    
     private double Vectorlength = 0.5;
-    private int counter = 0;
-    private float spawnTime;
-    public float spawnIntervall = 6;
-    
-    private float looseDelay = 0;
+    private int counter = 0;                                        // 
+    public int spawnSpeed = 10;                                     // Wie schell mehr Daten spawnen, Die Haeufigkeit wie oft die spawn Geschwindigkeit erhoet wird, kleinere Spawnspeed -> oefters wird SpawnIntervall erniedrigt
+    private float spawnTime;                                        
+    public float spawnIntervall = 6;                                // In diesm Intervall werden Daten gespawnt, kleineres Intervall -> mehr Daten
+
+    private float looseDelay = 0;                                   // Wie viel Zeit bleibt nachdem ein Knoten ueberlaufen ist
     private Vector3 initialScale;
-    
-    private void Start()
-    {
+    public bool destroy = false;
+
+    // Use this for initialization
+    void Start () {
         initialScale = gameObject.transform.localScale;
-    }
-    
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-        if (daten.Count >= lostDataCount)
-        {
-            if (looseDelay > 5)
+	}
+	
+	// Update is called once per frame
+    /*
+     * -Falls die Menge an der zu haltenden Daten ueberschritten wird, dann ist Game Over
+     */
+	void Update () {
+        
+            if (daten.Count >= lostDataCount)
             {
-                GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame();
-            } else
-            {
-                looseDelay += Time.deltaTime;
-                gameObject.transform.localScale = initialScale * (looseDelay / 10 + 1);
-            }
-        }
-        else
-        {
-            if (Time.time > spawnTime)
-            {
-                spawnTime = Time.time + spawnIntervall;
-                counter += 1;
-                Shape s;
-                do
+                if (looseDelay > 5)
                 {
-                    s = (Shape) Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
-                } while (s == shape);
+                    GameObject.FindGameObjectWithTag("CanvasController").GetComponent<CanvasController>().gameOver();
 
-                GameObject dataObject = Instantiate(dataPrefab, this.transform.position, new Quaternion(0, 0, 0, 0), this.transform);
+                   // GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().running = false;
+                   // GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame(true);
 
-                dataObject.SetActive(true);
-                var d = dataObject.GetComponent<Data_Script>();
-                d.setShape(s);
-                addData(d);
-                
-                
-                if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
-                {   
-                    spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
-                    
-                }
-
-                if (counter % (2 * spawnSpeed) == 0)
-                {
-                    lostDataCount += 1;
-                }
-                
-
-
-                if (looseDelay > 0)
-                {
-                    looseDelay -= Time.deltaTime;
-                    gameObject.transform.localScale = initialScale * (looseDelay / 10 + 1);
                 }
                 else
                 {
-                    gameObject.transform.localScale = initialScale;
+                    looseDelay += Time.deltaTime;
+                    gameObject.transform.localScale = initialScale * (looseDelay / 10 + 1);
                 }
             }
-        }
-        this.trySendData();
-    }
-
-    
-    public Vector3 arangeData(float i, float cirkle, int datenAmountOnCirkle)
-    {
-        
-        float x = 0;
-        float y = 0;
-
-        float winkel = (float) (2 * System.Math.PI) / (datenAmountOnCirkle );
-      
-        winkel = winkel * (float)(i) ;
-        
-
-        x = (float)(cirkle * (Vectorlength * (System.Math.Cos(winkel))));
-        y = (float)(cirkle * (Vectorlength * (System.Math.Sin(winkel))));
-        
-        return new Vector3(x,y,0);
-    }
-
-    public void rearangeData()
-    {
-        int i = 0;
-        float cirkle = 1f;
-        foreach (Data_Script d in daten)
-        {
-           if(i <= 7) d.transform.position = this.transform.position + arangeData(i, cirkle, 8);
-           else if (8 <= i && i < 20)
+            else
             {
-                cirkle = 1.5f;
-                d.transform.position = this.transform.position + arangeData(i, cirkle, 12);
-                
-                
-            }
-            else if(20 <= i && i < 36)
-            {
-                cirkle = 2f;
-                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
-            }
-            else if (36 <= i && i < 46)
-            {
-                cirkle = 2f;
-                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
-            }
-            i++;
-           
-        }
+                if (Time.time > spawnTime)
+                {
+                    spawnTime = Time.time + spawnIntervall;
+                    counter += 1;
+                    Shape s;
+                    do
+                    {
+                        s = (Shape)Random.Range(0, System.Enum.GetNames(typeof(Shape)).Length);
+                    } while (s == shape);
 
-    }
+                    // Erzeuge neues Datum
+                    GameObject dataObject = Instantiate(dataPrefab, this.transform.position, new Quaternion(0, 0, 0, 0), this.transform);
 
-    public void addData(Data_Script newData)
-    {
-        daten.Add(newData);
-        newData.gameObject.transform.SetParent(transform);
-        rearangeData();
-    }
+                    dataObject.SetActive(true);
+                    var d = dataObject.GetComponent<Data_Script>();
+                    d.setShape(s);
+                    addData(d);     // Fuege das Datum in die Liste des Knoten ein
 
-    public void removeData(Data_Script data)
-    {
-        daten.Remove(data);
-        rearangeData();
+                    if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
+                    {
+                        spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
+
+                    }
+
+                    // Mehr Daten kann der Knoten halten
+                    if (counter % (2 * spawnSpeed) == 0)
+                    {
+                        lostDataCount += 1;
+                    }
+
+                    if (looseDelay > 0)
+                    {
+                        looseDelay -= Time.deltaTime;
+                        gameObject.transform.localScale = initialScale * (looseDelay / 10 + 1);
+                    }
+                    else
+                    {
+                        gameObject.transform.localScale = initialScale;
+                    }
+                }
+            }
+            this.trySendData();
     }
 
     private void trySendData()
     {
-        for(int i = daten.Count - 1; i >= 0; i--)
+        for (int i = daten.Count - 1; i >= 0; i--)
         {
             var d = daten[i];
             var path = getShortestPathTo(d.shape);
@@ -162,7 +110,7 @@ public class NodeDataSpawner : Node
                 var highScore = GameObject.FindGameObjectWithTag("HighScore");
                 if (highScore != null)
                 {
-                    highScore.GetComponent<SetHighScore>().AddPoints(100);
+                    highScore.GetComponent<SetHighScore>().AddPoints(1);
                 }
                 var money = GameObject.FindGameObjectWithTag("Money");
                 if (money != null)
@@ -186,5 +134,75 @@ public class NodeDataSpawner : Node
         }
     }
 
-    
+
+    //setzt die Daten in einem Kreis um den Knoten
+    public void rearangeData()
+    {
+        int i = 0;
+        float cirkle = 1f;
+        foreach (Data_Script d in daten)
+        {
+            if (i <= 7) d.transform.position = this.transform.position + arangeData(i, cirkle, 8);
+            else if (8 <= i && i < 20)
+            {
+                cirkle = 1.5f;
+                d.transform.position = this.transform.position + arangeData(i, cirkle, 12);
+            }
+            else if (20 <= i && i < 36)
+            {
+                cirkle = 2f;
+                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
+            }
+            else if (36 <= i && i < 52)
+            {
+                cirkle = 2f;
+                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
+            }
+            else if (52 <= i && i < 68)
+            {
+                cirkle = 2f;
+                d.transform.position = this.transform.position + arangeData(i, cirkle, 16);
+            }
+            i++;
+
+        }
+
+    }
+
+    // Positioniert das Datum an der Exakten stelle um den Knoten
+    public Vector3 arangeData(float i, float cirkle, int datenAmountOnCirkle)
+    {
+
+        float x = 0;
+        float y = 0;
+
+        float winkel = (float)(2 * System.Math.PI) / (datenAmountOnCirkle);
+
+        winkel = winkel * (float)(i);
+
+
+        x = (float)(cirkle * (Vectorlength * (System.Math.Cos(winkel))));
+        y = (float)(cirkle * (Vectorlength * (System.Math.Sin(winkel))));
+
+        return new Vector3(x, y, 0);
+    }
+
+
+    //Fuege dem Knoten ein neues Datum ein
+    public void addData(Data_Script newData)
+    {
+        daten.Add(newData);
+        newData.gameObject.transform.SetParent(transform);
+        rearangeData();
+    }
+
+    //Entferne das Datum vom Knoten und loesche es
+    public void removeData(Data_Script data)
+    {
+        daten.Remove(data);
+        rearangeData();
+    }
+
+  
+
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Filip
 public class MoneyScript : MonoBehaviour {
     public int Money = 25;
     private Text MoneyText;
@@ -25,6 +26,6 @@ public class MoneyScript : MonoBehaviour {
 
     void setMoneyText()
     {
-        MoneyText.text = Money.ToString();
+        MoneyText.text = "Money: " +  Money.ToString();
     }
 }

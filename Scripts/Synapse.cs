@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public abstract class Synapse : MonoBehaviour, ISynapseConnection {
 
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Filip
+
 public class Node : MonoBehaviour
 {
     public Sprite TriangleImg;
@@ -26,15 +28,15 @@ public class Node : MonoBehaviour
 
     public List<IGraphSearch> getShortestPathTo(Shape shape)
     {
-        var thisNode = new GraphSearch {CurrentNode = this, PathLength = 0, Predecessor = null, Visited = true};
+        var thisNode = new GraphSearch { CurrentNode = this, PathLength = 0, Predecessor = null, Visited = true };
 
         if (shape == this.shape)
         {
-            var path = new List<IGraphSearch> {thisNode};
+            var path = new List<IGraphSearch> { thisNode };
             return path;
         }
 
-        List<IGraphSearch> reachable = new List<IGraphSearch> {thisNode};
+        List<IGraphSearch> reachable = new List<IGraphSearch> { thisNode };
 
         return thisNode.shortestPath(shape, reachable);
     }

@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Filip
 public class SynapseSelection : MonoBehaviour {
 
     public Type syn = typeof(DefaultSynapse);
-    public int price = 25;
+    public int price = 20;
 
     public void setDefaultSyn()
     {

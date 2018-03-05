@@ -3,18 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Filip
 public class EndPanelScript : MonoBehaviour {
-    
-    public float score;
 
+    public float score;
     private Text endText;
     private GameObject endPanel;
-    private GameObject menuPanel;
-    private Button mainMenuButton;
-    private Button retryButton;
+    private GameObject HighscorePanel;
+    private GameObject MoneyPanel;
+    private Button returnButton;
+    private Button replayButton;
+    private Button upgradeButton;
 
     private bool ended = false;
 
+    public Color FF00ED8A { get; private set; }
+
+    public void endGame(bool gameover)
+    {
+        GetComponent<Image>().color = FF00ED8A;
+        GameObject.FindGameObjectWithTag("endPanel").SetActive(true);
+        GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().running = false;
+    }
+
+    public bool isEnded()
+    {
+        return ended;
+    }
+
+    /* Simon Version
+    *
     public void endGame()
     {
         if (ended)
@@ -51,4 +69,8 @@ public class EndPanelScript : MonoBehaviour {
     {
         return ended;
     }
+    *
+    */
+
+
 }

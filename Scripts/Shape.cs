@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Shape { 
+//Filip
+public enum Shape
+{
     TRIANGLE,
     SQUARE,
     CIRCLE
