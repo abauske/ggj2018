@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4770082900739958}
   - component: {fileID: 212642537427354938}
-  - component: {fileID: 114775635051824806}
   - component: {fileID: 114168253543749800}
   - component: {fileID: 114301239400608372}
   m_Layer: 0
@@ -66,20 +65,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b800013d8c801484dbbb662b69803bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ImageDreieck: {fileID: 21300000, guid: 77ab7f71682511f49b9d92e3c3bfd1f4, type: 3}
-  ImageViereck: {fileID: 21300000, guid: 68a0539c2b22cb84a8d93f08bf8ed933, type: 3}
-  ImageKreis: {fileID: 21300000, guid: bc365beac4873c84c8aebebd7c6d8832, type: 3}
---- !u!114 &114775635051824806
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1415178320016986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278ab82a724ee8b4dbe3431fcc4e5540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ImageDreieck: {fileID: 21300000, guid: 77ab7f71682511f49b9d92e3c3bfd1f4, type: 3}

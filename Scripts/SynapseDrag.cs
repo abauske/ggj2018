@@ -27,6 +27,8 @@ public class SynapseDrag : MonoBehaviour
         line.SetPosition(1, currentPos - dragStart);
         line.gameObject.SetActive(true);
         line.positionCount = 2;
+        line.startWidth = 0.2f;
+        line.endWidth = 0f;
 
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         if (cam != null && (moneyScript.Money < cam.GetComponent<SynapseSelection>().price))
@@ -77,9 +79,11 @@ public class SynapseDrag : MonoBehaviour
     // Use this for initialization
 	void Start ()
 	{
-        if(GameObject.FindGameObjectWithTag("Money") != null)
+        //if(GameObject.FindGameObjectWithTag("Money") != null)
 	    {
 	        moneyScript = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>();
+            //print(GameObject.FindGameObjectWithTag("Money"));
+            //print(GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>());
         }
 	}
 	

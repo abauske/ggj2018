@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +14,7 @@ public class Knotenspawn : MonoBehaviour
     public float spawnTime;
     private GameObject[] nodes;
     public Camera cam;
-    public int VersionNumer ;
+    private int VersionNumer ;
 
     // Filip-Version Variables , Version Nummer1
 
@@ -46,7 +46,17 @@ public class Knotenspawn : MonoBehaviour
 
     private void Start()
     {
-
+        GameObject container = GameObject.FindGameObjectWithTag("Container");
+        container.SetActive(true);
+        if(container == null)
+        {
+            VersionNumer = 1;
+        }
+        else
+        {
+            VersionNumer = container.GetComponent<Containmentscript>().gameVersion;
+        }
+        print("VersionsNummer: " + VersionNumer);
         switch (VersionNumer)
         {
             case 1:  //Filip
@@ -74,6 +84,7 @@ public class Knotenspawn : MonoBehaviour
 
             default:
                 VersionNumer = 1;
+                print("wrong version Nummer");
                 break;
                 
         }

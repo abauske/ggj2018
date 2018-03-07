@@ -48,11 +48,12 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
         line.SetPosition(1, to.transform.position);
         line.startColor = Color.white;
         line.endColor = Color.white;
-        line.startWidth = 0.1f;
-        line.endWidth = 0.1f;
+        line.startWidth = 0.2f;
+        line.endWidth = 0f;
         line.material = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MaterialScript>().LineMaterial;
         line.material.color = Color.white;
         line.numCornerVertices = 10;
+       
     }
 
     public bool transferData(Data_Script data, IGraphSearch transfer)

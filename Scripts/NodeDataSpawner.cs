@@ -9,7 +9,7 @@ public class NodeDataSpawner : Node {
 
     public GameObject dataPrefab;
     private List<Data_Script> daten = new List<Data_Script>();      // Liste der Daten, die ein Knoten haelt
-    private int lostDataCount = 20;                                  // So viele Daten kann ein Knoten halten, waechst mit der Zeit
+    private int lostDataCount = 8;                                  // So viele Daten kann ein Knoten halten, waechst mit der Zeit
     
     private double Vectorlength = 0.5;
     private int counter = 0;                                        // 
