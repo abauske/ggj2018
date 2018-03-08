@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Containmentscript : MonoBehaviour {
+public class Containmentscript : MonoBehaviour
+{
+    //Global Variable
+    public int hardMoney;
+    //Game Variablen 
+    //global
+    public int gameVersion;     //1-2
+    public int spawnspeedData;
+    public int spawnSpeedNodes;
+    //Filip
+    public int nEck;            //3-7
+    public float density;       //1 - 99
+    public float distance;      //2
+    //Lukas
 
-    public int gameVersion;
-    public int containerIndex;
+    
+
 
     void Awake()
     {
@@ -16,29 +29,9 @@ public class Containmentscript : MonoBehaviour {
     public void Start()
     {
         SceneManager.LoadScene("MainMenu");
-      /*  if( SceneManager.GetActiveScene().name.Equals( "FirstScene" ))
-        {
-            StartCoroutine(StarteDasSpiel("MainMenu"));
-        }
-        */
     }
 
-    /*
-    IEnumerator StarteDasSpiel(string nextScene)
-    {
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        
-        SceneManager.MoveGameObjectToScene(this.gameObject , SceneManager.GetSceneByName(nextScene));
-        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("FirstScene"));
-
-    }
-    */
 
 }
 

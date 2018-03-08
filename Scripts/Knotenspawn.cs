@@ -14,21 +14,21 @@ public class Knotenspawn : MonoBehaviour
     public float spawnTime;
     private GameObject[] nodes;
     public Camera cam;
-    private int VersionNumer ;
+    private int VersionNumer ;      //gets from container
 
-    // Filip-Version Variables , Version Nummer1
+    // Filip-Version Variables , Version Nummer 1
 
     public float spawnIntervall = 6f;
-    public float spawnSpeed = 20f;
+    public float spawnSpeed = 20f;      //gets from container
     private int PosCounter = 0;
     private int sideCounterMax = 0;
     private int addedEckNodes = 1;
 
-    public float distance = 2;
-    public float density;
+    public float distance ;          // gets from container
+    private float density;               // gets from container // je größer density, größere chance knoten zu spawnen
     private int totalAmountPlacedNodes = 0;
     private int step = 1;
-    public int EckNodeAmount;
+    private int EckNodeAmount;           //gets from container //max Amount of Ecken
     private Vector3[] EckNodes;
     
     private Vector3[] direction;
@@ -55,6 +55,10 @@ public class Knotenspawn : MonoBehaviour
         else
         {
             VersionNumer = container.GetComponent<Containmentscript>().gameVersion;
+            EckNodeAmount = container.GetComponent<Containmentscript>().nEck;
+            density = container.GetComponent<Containmentscript>().density;
+            spawnSpeed = container.GetComponent<Containmentscript>().spawnSpeedNodes;
+            distance = container.GetComponent<Containmentscript>().distance;
         }
         print("VersionsNummer: " + VersionNumer);
         switch (VersionNumer)
@@ -72,7 +76,6 @@ public class Knotenspawn : MonoBehaviour
                 winkel = (float)(2 * System.Math.PI / EckNodeAmount);
                 EckNodes = new Vector3[EckNodeAmount];
                 direction = new Vector3[EckNodeAmount];
-                density = Random.Range(50, 60);
                 setVectores();
                 addedEckNodes = 0;
                 break;

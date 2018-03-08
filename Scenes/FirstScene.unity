@@ -295,8 +295,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30f3d73ee0677a4aaa5fe1c7f39e2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameVersion: 1
-  containerIndex: 0
+  hardMoney: 0
+  gameVersion: 2
+  spawnspeedData: 0
+  spawnSpeedNodes: 0
+  nEck: 0
+  density: 40
+  distance: 2
 --- !u!4 &1436477043
 Transform:
   m_ObjectHideFlags: 0
