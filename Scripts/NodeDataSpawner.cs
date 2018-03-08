@@ -8,38 +8,52 @@ using UnityEngine.Events;
 public class NodeDataSpawner : Node {
 
     public GameObject dataPrefab;
+    public GameObject container;
     private List<Data_Script> daten = new List<Data_Script>();      // Liste der Daten, die ein Knoten haelt
-    private int lostDataCount = 8;                                  // So viele Daten kann ein Knoten halten, waechst mit der Zeit
+    private int lostDataCount;                                  // So viele Daten kann ein Knoten halten, waechst mit der Zeit
     
     private double Vectorlength = 0.5;
     private int counter = 0;                                        // 
-    public int spawnSpeed = 10;                                     // Wie schell mehr Daten spawnen, Die Haeufigkeit wie oft die spawn Geschwindigkeit erhoet wird, kleinere Spawnspeed -> oefters wird SpawnIntervall erniedrigt
+    private int spawnSpeed ;                                     // Wie schell mehr Daten spawnen, Die Haeufigkeit wie oft die spawn Geschwindigkeit erhoet wird, kleinere Spawnspeed -> oefters wird SpawnIntervall erniedrigt
     private float spawnTime;                                        
     public float spawnIntervall = 6;                                // In diesm Intervall werden Daten gespawnt, kleineres Intervall -> mehr Daten
 
     private float looseDelay = 0;                                   // Wie viel Zeit bleibt nachdem ein Knoten ueberlaufen ist
     private Vector3 initialScale;
     public bool destroy = false;
+    public bool pause = false;
 
     // Use this for initialization
     void Start () {
         initialScale = gameObject.transform.localScale;
+        container = GameObject.FindGameObjectWithTag("Container");
+        if (container != null)
+        {
+            lostDataCount = container.GetComponent<Containmentscript>().maxDataPerNode;
+            spawnSpeed = container.GetComponent<Containmentscript>().spawnspeedData;
+        }
+        else
+        {
+            lostDataCount = 8;
+            spawnSpeed = 10;
+        }
 	}
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
     /*
      * -Falls die Menge an der zu haltenden Daten ueberschritten wird, dann ist Game Over
      */
-	void Update () {
-        
+    void Update()
+    {
+        if (!pause)
+        {
             if (daten.Count >= lostDataCount)
             {
                 if (looseDelay > 5)
                 {
-                    GameObject.FindGameObjectWithTag("CanvasController").GetComponent<CanvasController>().gameOver();
 
-                   // GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().running = false;
-                   // GameObject.FindGameObjectWithTag("endPanel").GetComponent<EndPanelScript>().endGame(true);
+                    GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().running = false;
+
 
                 }
                 else
@@ -92,6 +106,7 @@ public class NodeDataSpawner : Node {
                 }
             }
             this.trySendData();
+        }
     }
 
     private void trySendData()

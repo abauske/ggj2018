@@ -16,14 +16,12 @@ public class EndPanelScript : MonoBehaviour {
     private Button upgradeButton;
 
     private bool ended = false;
-
-    public Color FF00ED8A { get; private set; }
+    
 
     public void endGame(bool gameover)
     {
-        GetComponent<Image>().color = FF00ED8A;
-        GameObject.FindGameObjectWithTag("endPanel").SetActive(true);
-        GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().running = false;
+        
+        GetComponent<Canvas>().enabled = true;
     }
 
     public bool isEnded()

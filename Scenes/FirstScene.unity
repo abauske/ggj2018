@@ -296,10 +296,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hardMoney: 0
-  gameVersion: 2
-  spawnspeedData: 0
-  spawnSpeedNodes: 0
-  nEck: 0
+  gameVersion: 1
+  spawnspeedData: 10
+  spawnSpeedNodes: 5
+  maxDataPerNode: 8
+  nEck: 3
   density: 40
   distance: 2
 --- !u!4 &1436477043

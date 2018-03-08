@@ -12,6 +12,7 @@ public class Containmentscript : MonoBehaviour
     public int gameVersion;     //1-2
     public int spawnspeedData;
     public int spawnSpeedNodes;
+    public int maxDataPerNode;      //Startwert: 8++
     //Filip
     public int nEck;            //3-7
     public float density;       //1 - 99

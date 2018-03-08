@@ -14,6 +14,7 @@ public class Knotenspawn : MonoBehaviour
     public float spawnTime;
     private GameObject[] nodes;
     public Camera cam;
+    public bool pause = false;
     private int VersionNumer ;      //gets from container
 
     // Filip-Version Variables , Version Nummer 1
@@ -47,7 +48,7 @@ public class Knotenspawn : MonoBehaviour
     private void Start()
     {
         GameObject container = GameObject.FindGameObjectWithTag("Container");
-        container.SetActive(true);
+      
         if(container == null)
         {
             VersionNumer = 1;
@@ -123,59 +124,63 @@ public class Knotenspawn : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch(VersionNumer)
+        if (!pause)
         {
-            case 1:  //Filip
-                if (running)
-                {
+            switch (VersionNumer)
+            {
+                case 1:  //Filip
+                    if (running)
+                    {
+                        cam.orthographic = true;
+                        if (Time.time > spawnTime)
+                        {
+                            spawnTime = Time.time + 1 + spawnIntervall;
+                            if (totalAmountPlacedNodes % spawnSpeed == 0)
+                            {
+                                spawnIntervall *= Random.Range(0.95f, 0.99f);
+                            }
+                            if (totalAmountPlacedNodes < 3)
+                            {
+                                spawnNode(100);
+                            }
+                            else
+                            {
+                                spawnNode(density);
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        GameObject.FindGameObjectWithTag("GameOverPannel").GetComponent<EndPanelScript>().endGame(true);
+                        nodes = GameObject.FindGameObjectsWithTag(nodeTag);
+                        foreach (GameObject killingNode in nodes)
+                        {
+                            killingNode.GetComponent<NodeDataSpawner>().destroy = true;
+
+                        }
+                    }
+                    break;
+
+                case 2:  //Lukas
+                    timeCounter += Time.deltaTime; // 0.02
+                                                   //Spawn immer nach spawntime ausführen
+
+                    if (running && (int)(timeCounter) != 0 && ((int)(timeCounter)) % spawnTime == 0)
+                    {
+                        Spawn();
+                        timeCounter = 0;
+                        //InvokeRepeating("Spawn", spawnTime, spawnTime);
+                    }
+
                     cam.orthographic = true;
-                    if (Time.time > spawnTime)
-                    {
-                        spawnTime = Time.time + 1 + spawnIntervall;
-                        if (totalAmountPlacedNodes % spawnSpeed == 0)
-                        {
-                            spawnIntervall *= Random.Range(0.95f, 0.99f);
-                        }
-                        if(totalAmountPlacedNodes < 3)
-                        {
-                            spawnNode(100);
-                        }
-                        else
-                        {
-                            spawnNode(density);
-                        }
-                        
-                    }
-                }
-                else
-                {
-                    nodes = GameObject.FindGameObjectsWithTag(nodeTag);
-                    foreach (GameObject killingNode in nodes)
-                    {
-                        killingNode.GetComponent<NodeDataSpawner>().destroy = true;
+                    break;
 
-                    }
-                }
-                break;
+                default:
+                    VersionNumer = 1;
+                    break;
 
-            case 2:  //Lukas
-                timeCounter += Time.deltaTime; // 0.02
-                                               //Spawn immer nach spawntime ausführen
-
-                if (running && (int)(timeCounter) != 0 && ((int)(timeCounter)) % spawnTime == 0)
-                {
-                    Spawn();
-                    timeCounter = 0;
-                    //InvokeRepeating("Spawn", spawnTime, spawnTime);
-                }
-                
-                cam.orthographic = true;
-                break;
-
-            default:
-                VersionNumer = 1;
-                break;
-
+            }
         }
     }
 
