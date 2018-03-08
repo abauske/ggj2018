@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -7348,7 +7348,7 @@ RectTransform:
   m_Children:
   - {fileID: 1224523767}
   m_Father: {fileID: 2053509363}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7595,7 +7595,7 @@ RectTransform:
   m_Children:
   - {fileID: 2064267142}
   m_Father: {fileID: 2053509363}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9216,8 +9216,8 @@ RectTransform:
   m_Children:
   - {fileID: 23987342}
   - {fileID: 512632241}
-  - {fileID: 1570634806}
   - {fileID: 1612966164}
+  - {fileID: 1570634806}
   - {fileID: 1170735022}
   m_Father: {fileID: 1350850446}
   m_RootOrder: 0
@@ -9362,7 +9362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Settings
+  m_Text: Upgrades
 --- !u!222 &2064267144
 CanvasRenderer:
   m_ObjectHideFlags: 0
