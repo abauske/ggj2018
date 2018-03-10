@@ -63,7 +63,7 @@ public class Knotenspawn : MonoBehaviour
             VersionNumer = container.GetComponent<Containmentscript>().gameVersion;
             EckNodeAmount = container.GetComponent<Containmentscript>().nEck;
             density = container.GetComponent<Containmentscript>().density;
-            spawnSpeed = container.GetComponent<Containmentscript>().spawnSpeedNodes;
+            spawnSpeed = container.GetComponent<Containmentscript>().NodeSpawnSpeed;
             distance = container.GetComponent<Containmentscript>().distance;
         }
         print("VersionsNummer: " + VersionNumer);

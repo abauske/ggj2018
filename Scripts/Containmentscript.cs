@@ -7,22 +7,33 @@ using UnityEngine.UI;
 public class Containmentscript : MonoBehaviour
 {
     //Global Variable
-    public int hardMoney;
     public string[] gameOverText = new string[6];
+    public int hardMoney;
     //Game Variablen 
     //global
     public int gameVersion;     //1-2
-    public int spawnspeedData;
-    public int spawnSpeedNodes;
-    public int maxDataPerNode;      //Startwert: 8++
+    public int DataSpawnSpeed;
+    public int NodeSpawnSpeed;
+    public int maxDataPerNode;      //Startwert: 8, je größer desto besser
     public int[] Lv = new int[22];
-    //Filip
+    //Filip - GameVersion 1 
     public int nEck;            //3-7
-    public float density;       //1 - 99
-    public float distance;      //2
-    //Lukas
+    public float density;       //1 - 99, je größer, desto dichter die Nodes
+    public float distance;      //2     distanz zw. Ursprung und knoten des ersten nEcks
+    //Lukas - GameVersion 2
 
+    //Upgrade Variablen
+    //public int nEck;              wird oben verwendet
+    //public int NodeSpawnSpeed;
+    //public int DataSpawnSpeed;
+    //public int maxDataPerNode;
+    //public float density;           wird oben Verwendet
+    //public int SynapseSpeed;      nur ein UpgradeButton für alle Synapsen, oder je Synapse ein Upgrade button???
+    public int StartMoney;
+    public int hardMoneyIncrease;
     
+
+
 
 
     void Awake()

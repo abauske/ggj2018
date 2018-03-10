@@ -30,7 +30,7 @@ public class NodeDataSpawner : Node {
         if (container != null)
         {
             lostDataCount = container.GetComponent<Containmentscript>().maxDataPerNode;
-            spawnSpeed = container.GetComponent<Containmentscript>().spawnspeedData;
+            spawnSpeed = container.GetComponent<Containmentscript>().DataSpawnSpeed ;
         }
         else
         {
