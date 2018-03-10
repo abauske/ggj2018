@@ -13,7 +13,7 @@ public class NodeDataSpawner : Node {
     private int lostDataCount;                                  // So viele Daten kann ein Knoten halten, waechst mit der Zeit
     
     private double Vectorlength = 0.5;
-    private int counter = 0;                                        // 
+    public int counter = 0;                                        // 
     private int spawnSpeed ;                                     // Wie schell mehr Daten spawnen, Die Haeufigkeit wie oft die spawn Geschwindigkeit erhoet wird, kleinere Spawnspeed -> oefters wird SpawnIntervall erniedrigt
     private float spawnTime;                                        
     public float spawnIntervall = 6;                                // In diesm Intervall werden Daten gespawnt, kleineres Intervall -> mehr Daten
@@ -51,10 +51,8 @@ public class NodeDataSpawner : Node {
             {
                 if (looseDelay > 5)
                 {
-
-                    GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().running = false;
-
-
+                    GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().stopGame(false); // bei false wird Spiel angehalten
+                    
                 }
                 else
                 {

@@ -6,28 +6,15 @@ using UnityEngine.UI;
 //Filip
 public class EndPanelScript : MonoBehaviour {
 
-    public float score;
-    private Text endText;
-    private GameObject endPanel;
-    private GameObject HighscorePanel;
-    private GameObject MoneyPanel;
-    private Button returnButton;
-    private Button replayButton;
-    private Button upgradeButton;
-
-    private bool ended = false;
     
-
-    public void endGame(bool gameover)
+    public void endGame()
     {
-        
-        GetComponent<Canvas>().enabled = true;
+        GameObject.FindGameObjectWithTag("GameOverPannel").GetComponent<Canvas>().enabled = true;
+        GameObject.FindGameObjectWithTag("GameFieldCanvas").GetComponent<Canvas>().enabled = false;
+        GameObject.FindGameObjectWithTag("HighscoreCanvas").GetComponent<Canvas>().enabled = false;
     }
 
-    public bool isEnded()
-    {
-        return ended;
-    }
+ 
 
     /* Simon Version
     *

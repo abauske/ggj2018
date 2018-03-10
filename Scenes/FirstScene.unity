@@ -296,12 +296,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hardMoney: 0
+  gameOverText:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   gameVersion: 1
   spawnspeedData: 10
   spawnSpeedNodes: 5
   maxDataPerNode: 8
-  nEck: 3
-  density: 40
+  Lv: 02000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  nEck: 6
+  density: 70
   distance: 2
 --- !u!4 &1436477043
 Transform:
