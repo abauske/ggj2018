@@ -9,14 +9,14 @@ public class SwitchButtonSettings : MonoBehaviour {
     {
         if(b)
         {
-            GameObject.FindGameObjectWithTag("UpgradesPanel").GetComponent<RectTransform>().localPosition = new Vector3( -2000 , 0 , 0);
+            GameObject.FindGameObjectWithTag("UpgradesPanel").GetComponent<RectTransform>().localPosition = new Vector3(8000, 0, 0);
             GameObject.FindGameObjectWithTag("GameSettingPanel").GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
             GameObject.FindGameObjectWithTag("ExplainText").GetComponent<Text>().text = "";
         }
         else
         {
             GameObject.FindGameObjectWithTag("UpgradesPanel").GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-            GameObject.FindGameObjectWithTag("GameSettingPanel").GetComponent<RectTransform>().localPosition = new Vector3(2000, 0, 0);
+            GameObject.FindGameObjectWithTag("GameSettingPanel").GetComponent<RectTransform>().localPosition = new Vector3(8000, 0, 0);
 
         }
     }

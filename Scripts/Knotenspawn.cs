@@ -30,7 +30,7 @@ public class Knotenspawn : MonoBehaviour
     private int addedEckNodes = 1;
 
     public float distance;          // gets from container
-    private float density;               // gets from container // je größer density, größere chance knoten zu spawnen
+    private int density;               // gets from container // je größer density, größere chance knoten zu spawnen
     private int totalAmountPlacedNodes = 0;
     private int step = 1;
     private int EckNodeAmount;           //gets from container //max Amount of Ecken
@@ -57,6 +57,10 @@ public class Knotenspawn : MonoBehaviour
         if (container == null)
         {
             VersionNumer = 1;
+            EckNodeAmount = 3;
+            density = 50;
+            spawnSpeed = 2;
+            distance = 2f;
         }
         else
         {
@@ -66,7 +70,7 @@ public class Knotenspawn : MonoBehaviour
             spawnSpeed = container.GetComponent<Containmentscript>().NodeSpawnSpeed;
             distance = container.GetComponent<Containmentscript>().distance;
         }
-        print("VersionsNummer: " + VersionNumer);
+        //print("VersionsNummer: " + VersionNumer);
         switch (VersionNumer)
         {
             case 1:  //Filip
