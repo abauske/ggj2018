@@ -295,7 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30f3d73ee0677a4aaa5fe1c7f39e2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hardMoney: 0
   gameOverText:
   - 
   - 
@@ -303,14 +302,17 @@ MonoBehaviour:
   - 
   - 
   - 
+  hardMoney: 100
   gameVersion: 1
-  spawnspeedData: 10
-  spawnSpeedNodes: 5
+  DataSpawnSpeed: 0
+  NodeSpawnSpeed: 0
   maxDataPerNode: 8
   Lv: 02000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   nEck: 6
   density: 70
   distance: 2
+  StartMoney: 0
+  hardMoneyIncrease: 0
 --- !u!4 &1436477043
 Transform:
   m_ObjectHideFlags: 0
