@@ -365,7 +365,7 @@ public class Knotenspawn : MonoBehaviour
 
         GameObject newNode = Instantiate(node, pos, new Quaternion(0, 0, 0, 0));
         newNode.GetComponent<NodeDataSpawner>().setShape((Shape)i);
-
+        totalAmountPlacedNodes++;
         
         if (i == 0 && !triangle)
         {
