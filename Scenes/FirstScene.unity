@@ -310,10 +310,17 @@ MonoBehaviour:
   nEck: 3
   density: 15
   distance: 2
+  increasement: 1.1
+  minDistance: 1.5
+  spawnTime: 8
   Lv: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   StartMoney: 200
   hardMoneyIncrease: 2
-  SpeedMultiplikator: 1
+  speedCircleMult: 1
+  speedSquareMult: 1
+  speedTriangleMult: 1
+  speedFastMult: 1
+  speedDafaultMult: 1
 --- !u!4 &1436477043
 Transform:
   m_ObjectHideFlags: 0
