@@ -16,6 +16,12 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
     public Node from { get; set; }
     public Node to { get; set; }
 
+    public float speedCircleMult;
+    public float speedSquareMult;
+    public float speedTriangleMult;
+    public float speedFastMult;
+    public float speedDafaultMult;
+
     private LineRenderer line;
 
     protected float lastTransmissionStart;
@@ -25,6 +31,14 @@ public abstract class Synapse : MonoBehaviour, ISynapseConnection {
     // Use this for initialization
     public void Start ()
     {
+        Containmentscript c = GameObject.FindGameObjectWithTag("Container").GetComponent<Containmentscript>();
+
+        this.speedCircleMult = c.speedCircleMult;
+        this.speedDafaultMult = c.speedDafaultMult;
+        this.speedFastMult = c.speedFastMult;
+        this.speedSquareMult = c.speedSquareMult;
+        this.speedTriangleMult = c.speedTriangleMult;
+
         lastTransmissionStart = Time.time;
 
         line = gameObject.AddComponent<LineRenderer>();

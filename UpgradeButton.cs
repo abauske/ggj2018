@@ -218,6 +218,8 @@ public class UpgradeButton : MonoBehaviour {
             case 13:
                 explainText += "Gain more $$$.\n";
                 break;
+            case 19:
+                break;
             default:
                 explainText = "";
                 break;

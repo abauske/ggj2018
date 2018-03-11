@@ -5,12 +5,13 @@ using UnityEngine;
 //Filip
 public class TriangleSynapse : Synapse {
 
-    private float transferspeed = 8;
+    private float defaultSpeed = 8;
 
     public Shape transferable = Shape.TRIANGLE;
 
     public override bool canTransfer(Shape data)
     {
+        float transferspeed = defaultSpeed * speedTriangleMult;
         float duration = Weight / transferspeed;
 
         if (data == transferable && Time.time > lastTransmissionStart + duration)
@@ -23,6 +24,7 @@ public class TriangleSynapse : Synapse {
 
     public override float getProgress()
     {
+        float transferspeed = defaultSpeed * speedTriangleMult;
         float duration = Weight / transferspeed;
         return (Time.time - lastTransmissionStart) / duration;
     }

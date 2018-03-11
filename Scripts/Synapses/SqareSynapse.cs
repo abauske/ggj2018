@@ -5,12 +5,13 @@ using UnityEngine;
 //Filip
 public class SqareSynapse : Synapse {
 
-    private float transferspeed = 8;
+    private float defaultSpeed = 8;
 
     public Shape transferable = Shape.SQUARE;
 
     public override bool canTransfer(Shape data)
     {
+        float transferspeed = defaultSpeed * speedSquareMult;
         float duration = Weight / transferspeed;
 
         if (data == transferable && Time.time > lastTransmissionStart + duration)
@@ -23,6 +24,7 @@ public class SqareSynapse : Synapse {
 
     public override float getProgress()
     {
+        float transferspeed = defaultSpeed * speedSquareMult;
         float duration = Weight / transferspeed;
         return (Time.time - lastTransmissionStart) / duration;
     }

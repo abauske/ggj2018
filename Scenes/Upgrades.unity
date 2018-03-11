@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 145988707}
   - component: {fileID: 145988706}
   m_Layer: 5
-  m_Name: Button (18)
+  m_Name: Button_SynapseSpeedUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6800,7 +6800,7 @@ GameObject:
   - component: {fileID: 938517380}
   - component: {fileID: 938517381}
   m_Layer: 5
-  m_Name: SortedToggle
+  m_Name: Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

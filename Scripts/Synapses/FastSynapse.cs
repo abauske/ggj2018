@@ -6,12 +6,11 @@ using UnityEngine;
 public class FastSynapse : Synapse
 {
 
-    public float speedMultiplier = 2;
-    private readonly float defaultSpeed = 4;
+    private readonly float defaultSpeed = 8;
 
     public override bool canTransfer(Shape data)
     {
-        float transferspeed = defaultSpeed * speedMultiplier;
+        float transferspeed = defaultSpeed * speedFastMult;
         float duration = Weight / transferspeed;
 
         if (Time.time > lastTransmissionStart + duration)
@@ -25,7 +24,7 @@ public class FastSynapse : Synapse
 
     public override float getProgress()
     {
-        float transferspeed = defaultSpeed * speedMultiplier;
+        float transferspeed = defaultSpeed * speedFastMult;
         float duration = Weight / transferspeed;
         return (Time.time - lastTransmissionStart) / duration;
     }

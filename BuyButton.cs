@@ -29,19 +29,19 @@ public class BuyButton : MonoBehaviour {
             
             switch(selectedButton.pos)
             {
-                case 1:
+                case 1: //speed Mult. Default
                     break;
 
-                case 2:
+                case 2: //speed Mult. circle
                     break;
 
-                case 3:
+                case 3: //speed Mult. square
                     break;
 
-                case 4:
+                case 4: //speed Mult. Triangle
                     break;
 
-                case 5:
+                case 5: //speed Mult. Fast
                     break;
 
                 case 6:

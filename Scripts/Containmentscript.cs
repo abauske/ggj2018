@@ -33,7 +33,12 @@ public class Containmentscript : MonoBehaviour
     //public int SynapseSpeed;      nur ein UpgradeButton für alle Synapsen, oder je Synapse ein Upgrade button???
     public int StartMoney;
     public float hardMoneyIncrease;
-    
+    public float speedCircleMult = 1;
+    public float speedSquareMult = 1;
+    public float speedTriangleMult = 1;
+    public float speedFastMult = 1;
+    public float speedDafaultMult = 1;
+
 
     void Awake()
     {
