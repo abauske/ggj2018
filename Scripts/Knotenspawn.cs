@@ -45,8 +45,12 @@ public class Knotenspawn : MonoBehaviour
     public float increasment = 1.1f;
     public bool SideMenuBar = false;
     public float minDistance;
-    private static float maxDistance = 2;
+    private float maxDistance = 2;
     private float timeCounter;
+
+    private bool triangle = false;
+    private bool square = false;
+    private bool circle = false;
 
 
     private void Start()
@@ -61,6 +65,9 @@ public class Knotenspawn : MonoBehaviour
             density = 50;
             spawnSpeed = 2;
             distance = 2f;
+            increasment = 1.1f;
+            spawnTime = 8f;
+            minDistance = 1.5f;
         }
         else
         {
@@ -69,6 +76,11 @@ public class Knotenspawn : MonoBehaviour
             density = container.GetComponent<Containmentscript>().density;
             spawnSpeed = container.GetComponent<Containmentscript>().NodeSpawnSpeed;
             distance = container.GetComponent<Containmentscript>().distance;
+            increasment = container.GetComponent<Containmentscript>().increasement;
+            minDistance = container.GetComponent<Containmentscript>().minDistance;
+            spawnTime = container.GetComponent<Containmentscript>().spawnTime;
+
+
         }
         //print("VersionsNummer: " + VersionNumer);
         switch (VersionNumer)
@@ -180,7 +192,7 @@ public class Knotenspawn : MonoBehaviour
                     {
                         if ((int)(timeCounter) != 0 && ((int)(timeCounter)) % spawnTime == 0)
                         {
-                            Spawn();
+                            Spawn(density);
                             timeCounter = 0;
                             //InvokeRepeating("Spawn", spawnTime, spawnTime);
                         }
@@ -283,8 +295,17 @@ public class Knotenspawn : MonoBehaviour
         }
     }
 
-    private void Spawn()  //Lukas
+    private void Spawn(float dens)  //Lukas
     {
+        if (dens < Random.Range(1, 100))
+        {
+            if(square && circle && triangle)
+            {
+                return;
+            }
+            
+        }
+
         if (maxDistance == 0)
             maxDistance = 1;
 
@@ -344,6 +365,20 @@ public class Knotenspawn : MonoBehaviour
 
         GameObject newNode = Instantiate(node, pos, new Quaternion(0, 0, 0, 0));
         newNode.GetComponent<NodeDataSpawner>().setShape((Shape)i);
+
+        
+        if (i == 0 && !triangle)
+        {
+            triangle = true;
+        }
+        else if (i == 1 && !square)
+        {
+            square = true;
+        }
+        else if (i == 2 && !circle)
+        {
+            circle = true;
+        }
 
     }
 

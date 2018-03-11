@@ -20,7 +20,17 @@ public class Containmentscript : MonoBehaviour
     public int nEck;            //3-7
     public int density;       //1 - 99, je größer, desto dichter die Nodes
     public float distance;      //2     distanz zw. Ursprung und knoten des ersten nEcks
+
     //Lukas - GameVersion 2
+
+    public float increasement; //die vergrößerung des maximalen Abstands vom Ursprung;
+                               // 1.01 bis max. 1.3
+                               // je näher an 1 desto enger spawnen die Knoten
+    public float minDistance; // minimaler Abstand der Knoten zueinander
+                              // 1.4 bis 3
+    public float spawnTime; //zeitlicher Abstand der Knotenspawns
+                                //beliebiger Wert grösser Null
+    
 
     //Upgrade Variablen
     public int[] Lv = new int[22];
