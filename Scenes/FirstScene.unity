@@ -302,8 +302,8 @@ MonoBehaviour:
   - 
   - 
   - 
-  hardMoney: 150
-  gameVersion: 1
+  hardMoney: 50
+  gameVersion: 2
   DataSpawnSpeed: 10
   NodeSpawnSpeed: 1
   maxDataPerNode: 8

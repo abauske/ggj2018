@@ -22,19 +22,38 @@ public class BuyButton : MonoBehaviour {
 
     public void clickBuy()
     {
-        if(selectedButton.price <= money.hardMoney 
+        if((selectedButton.price * (container.Lv[selectedButton.pos-1]+1)) <= money.hardMoney 
             && container.Lv[selectedButton.pos - 1] < selectedButton.maxLv)
         {
-            money.AddHardMoney(-(selectedButton.price));
+            money.AddHardMoney(-(selectedButton.price * (container.Lv[selectedButton.pos - 1]+1)));
             
             switch(selectedButton.pos)
             {
                 case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    break;
+
+                case 6:
+                    break;
+
+                case 7: //Data per Node
                     print("here");
                     container.Lv[(selectedButton.pos - 1)] += 1;
                     container.maxDataPerNode += 1;
                     break;
-                case 2:
+
+                case 8: //nEck
                     print("here2");
                     if (container.Lv[(selectedButton.pos - 1)] == 0)
                     {
@@ -45,9 +64,15 @@ public class BuyButton : MonoBehaviour {
                     {
                         container.nEck += 1;
                     }
+                    if (container.Lv[selectedButton.pos - 1] == 0)
+                    {
+                        Toggle[] g = GameObject.FindGameObjectWithTag("GameSettingPanel").GetComponentsInChildren<Toggle>();
+                        g[0].enabled = true;
+                    }
                     container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
-                case 3:
+
+                case 9: //Density
                     print("here3");
                     if(container.Lv[(selectedButton.pos - 1)] == 9)
                     {
@@ -59,6 +84,19 @@ public class BuyButton : MonoBehaviour {
                     }
                     container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
+
+                case 10: //NodeSpawnSpeed
+                    break;
+
+                case 11: //DataSpawnSpeed
+                    break;
+
+                case 12: //More Money in Game
+                    break;
+
+                case 13: //More Hard Money in Updates
+                    break;
+
                 default:
                     break;
 

@@ -22,7 +22,8 @@ public class UpgradeButton : MonoBehaviour {
             container = GameObject.FindGameObjectWithTag("Container");
             Lv = container.GetComponent<Containmentscript>().Lv;
             c = this.GetComponentsInChildren<Text>();
-            c[0].text = price.ToString();
+            setPrice();
+            c[0].text = (container.GetComponent<Containmentscript>().Lv[pos-1]*price).ToString();
             boughtUpdate();
 
         }
@@ -36,7 +37,7 @@ public class UpgradeButton : MonoBehaviour {
 
     public void FixedUpdate()
     {
-        if(container.GetComponent<Containmentscript>().hardMoney < price)
+        if(container.GetComponent<Containmentscript>().hardMoney < (price*(container.GetComponent<Containmentscript>().Lv[pos-1]+1)))
         {
             c[0].color = Color.red;
         }
@@ -46,6 +47,42 @@ public class UpgradeButton : MonoBehaviour {
         }
     }
 
+    public void boughtUpdate()
+    {
+        if (maxLv <= Lv[pos - 1])
+        {
+            c[0].text = "";             //Preis Text
+            c[1].text = "MAX";          //Lv Text
+        }
+        else
+        {
+            c[0].text = ((container.GetComponent<Containmentscript>().Lv[pos - 1]+1) * price).ToString()+" $";
+            c[1].text = Lv[pos - 1] + "/" + maxLv;
+        }
+        GameObject.FindGameObjectWithTag("ExplainText").GetComponent<Text>().text = "";
+    }
+
+    private void setPrice()
+    {
+        if(this.pos >= 1 && this.pos <=6 )
+        {
+            price = 1;
+        }
+        if (this.pos >= 7 && this.pos <= 12)
+        {
+            price = 5;
+        }
+        if (this.pos >= 13 && this.pos <= 18)
+        {
+            price = 10;
+        }
+        if (this.pos >= 19 && this.pos <= 22)
+        {
+            price = 20;
+        }
+
+    }
+
     public void onClick()
     {
         explainText = "Cost: " + c[0].text + "  -  ";
@@ -53,7 +90,7 @@ public class UpgradeButton : MonoBehaviour {
         BuyButton.GetComponent<BuyButton>().selectedButton = this;
         switch(pos)
         {
-            case 1:
+            case 7: // Data per Node
                 explainText += "Limitless\n";
                 switch (Lv[pos-1])
                 {
@@ -103,12 +140,13 @@ public class UpgradeButton : MonoBehaviour {
                 }
                 break;
 
-            case 2:
+            case 8: //nEck
                 explainText += "The Perfect Circle\n";
                 switch (Lv[pos - 1])
                 {
                     case 0:
                         explainText += "Get closer to pi. Now it`s just Random.";
+                        
                         break;
                     case 1:
                         explainText += "Get closer to pi. Now it`s just Triangle.";
@@ -128,7 +166,7 @@ public class UpgradeButton : MonoBehaviour {
                 }
                 break;
 
-            case 3:
+            case 9: //Density
                 explainText += "More Nodes = More Data \n";
                 switch (Lv[pos - 1])
                 {
@@ -168,16 +206,16 @@ public class UpgradeButton : MonoBehaviour {
                 }
                 break;
 
-            case 4:
+            case 10:
                 explainText += "Spawn Nodes faster.\n";
                 break;
-            case 5:
+            case 11:
                 explainText += "Spawn Data faster. \n";
                 break;
-            case 6:
+            case 12:
                 explainText += "Gain more Money.\n";
                 break;
-            case 7:
+            case 13:
                 explainText += "Gain more $$$.\n";
                 break;
             default:
@@ -187,19 +225,7 @@ public class UpgradeButton : MonoBehaviour {
         GameObject.FindGameObjectWithTag("ExplainText").GetComponent<Text>().text = explainText;
     }
 
-    public void boughtUpdate()
-    {
-        if(maxLv <= Lv[pos-1])
-        {
-            c[1].text = "MAX";
-        }
-        else
-        {
-            c[1].text = Lv[pos - 1] + "/" + maxLv;
-        }
-        //preis muss dann noch erneuert werden
-        GameObject.FindGameObjectWithTag("ExplainText").GetComponent<Text>().text = "";
-    }
+   
 
     
 }
