@@ -302,20 +302,20 @@ MonoBehaviour:
   - 
   - 
   - 
-  hardMoney: 1000
+  hardMoney: 0
   gameVersion: 2
   DataSpawnSpeed: 10
-  NodeSpawnSpeed: 1
+  NodeSpawnSpeed: 6
   maxDataPerNode: 8
+  spawnIntervall: 10
   nEck: 3
   density: 15
   distance: 2
   increasement: 1.1
   minDistance: 1.5
-  spawnTime: 8
   Lv: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  StartMoney: 200
-  hardMoneyIncrease: 2
+  StartMoney: 110
+  hardMoneyIncrease: 10
   speedCircleMult: 1
   speedSquareMult: 1
   speedTriangleMult: 1

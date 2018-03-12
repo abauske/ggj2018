@@ -16,7 +16,7 @@ public class NodeDataSpawner : Node {
     public int counter = 0;                                        // 
     private int spawnSpeed ;                                     // Wie schell mehr Daten spawnen, Die Haeufigkeit wie oft die spawn Geschwindigkeit erhoet wird, kleinere Spawnspeed -> oefters wird SpawnIntervall erniedrigt
     private float spawnTime;                                        
-    public float spawnIntervall = 6;                                // In diesm Intervall werden Daten gespawnt, kleineres Intervall -> mehr Daten
+    public float spawnIntervall = 4;                                // In diesm Intervall werden Daten gespawnt, kleineres Intervall -> mehr Daten
 
     private float looseDelay = 0;                                   // Wie viel Zeit bleibt nachdem ein Knoten ueberlaufen ist
     private Vector3 initialScale;
@@ -51,6 +51,7 @@ public class NodeDataSpawner : Node {
             {
                 if (looseDelay > 5)
                 {
+                    gameObject.transform.localScale = initialScale;
                     GameObject.FindGameObjectWithTag("NodeSpawner").GetComponent<Knotenspawn>().stopGame(false); // bei false wird Spiel angehalten
                     
                 }
@@ -64,6 +65,8 @@ public class NodeDataSpawner : Node {
             {
                 if (Time.time > spawnTime)
                 {
+
+                    gameObject.transform.localScale = initialScale;
                     spawnTime = Time.time + spawnIntervall;
                     counter += 1;
                     Shape s;
@@ -80,7 +83,7 @@ public class NodeDataSpawner : Node {
                     d.setShape(s);
                     addData(d);     // Fuege das Datum in die Liste des Knoten ein
 
-                    if ((counter % spawnSpeed) == 0) // alle 10 counts wird schneller gespawnt
+                    if ((counter % spawnSpeed) == 0) // zeitspanne zw zwei Data wird verkürzt
                     {
                         spawnIntervall = spawnIntervall * Random.Range(0.8f, 0.9f);
 

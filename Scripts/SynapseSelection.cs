@@ -7,8 +7,12 @@ using UnityEngine;
 public class SynapseSelection : MonoBehaviour {
 
     public Type syn = typeof(DefaultSynapse);
-    public int price = 25;
+    public int price;
 
+    public void Start()
+    {
+        price = 25;
+    }
     public void setDefaultSyn()
     {
         syn = typeof(DefaultSynapse);

@@ -5,7 +5,7 @@ using UnityEngine;
 //Filip
 public class TriangleSynapse : Synapse {
 
-    private float defaultSpeed = 8;
+    private float defaultSpeed = 6;
 
     public Shape transferable = Shape.TRIANGLE;
 

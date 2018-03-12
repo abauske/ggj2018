@@ -101,6 +101,13 @@ public class BuyButton : MonoBehaviour {
                     break;
 
                 case 10: //NodeSpawnSpeed
+                   if((container.Lv[(selectedButton.pos-1)]+1) %3 == 0)
+                    {
+                        container.NodeSpawnSpeed += 1;
+
+                    }
+                    container.spawnIntervall += 0.4f;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 case 11: //DataSpawnSpeed
@@ -112,6 +119,8 @@ public class BuyButton : MonoBehaviour {
                     break;
 
                 case 13: //More Hard Money in Updates
+                    container.hardMoneyIncrease += 10;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 default:

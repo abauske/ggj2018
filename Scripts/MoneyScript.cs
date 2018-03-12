@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 //Filip
 public class MoneyScript : MonoBehaviour {
-    public int Money = 25;
+    public int Money ;
+    public int earnedMoney;
     public int hardMoney;
     private Text MoneyText;
     private Containmentscript container;
@@ -15,6 +16,8 @@ public class MoneyScript : MonoBehaviour {
         container = GameObject.FindGameObjectWithTag("Container").GetComponent<Containmentscript>();
         MoneyText = GetComponent<Text>();
         this.hardMoney = container.hardMoney;
+        earnedMoney = 0;
+        Money = container.StartMoney;
         if(SceneManager.GetSceneByName("Upgrades") == SceneManager.GetActiveScene())
         {
             setHardMoney();
@@ -41,6 +44,7 @@ public class MoneyScript : MonoBehaviour {
 
     public void AddMoney(int bymoney)
     {
+        earnedMoney += bymoney;
         Money += bymoney;
     }
 

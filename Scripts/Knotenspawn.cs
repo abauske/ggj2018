@@ -46,7 +46,7 @@ public class Knotenspawn : MonoBehaviour
     public bool SideMenuBar = false;
     public float minDistance;
     private float maxDistance = 2;
-    private float timeCounter;
+   // private float timeCounter;
 
     private bool triangle = false;
     private bool square = false;
@@ -64,25 +64,26 @@ public class Knotenspawn : MonoBehaviour
             //Filip
             EckNodeAmount = 3;
             density = 50;
-            spawnSpeed = 2;
+            spawnSpeed = 8;
             distance = 2f;
             //Lukas
             increasment = 1.1f;
-            spawnTime = 8f;
+            // spawnTime = 8f;
             minDistance = 1.5f;
         }
         else
         {
             VersionNumer = container.GetComponent<Containmentscript>().gameVersion;
+            spawnIntervall = container.GetComponent<Containmentscript>().spawnIntervall;
             //Filip
             EckNodeAmount = container.GetComponent<Containmentscript>().nEck;
             density = container.GetComponent<Containmentscript>().density;
-            spawnSpeed = container.GetComponent<Containmentscript>().NodeSpawnSpeed;
+            spawnSpeed = container.GetComponent<Containmentscript>().NodeSpawnSpeed;        // nach jedem spawnSpeed-ten Node wird schneller gespawnt
             distance = container.GetComponent<Containmentscript>().distance;
             //Lukas
             increasment = container.GetComponent<Containmentscript>().increasement;
             minDistance = container.GetComponent<Containmentscript>().minDistance;
-            spawnTime = container.GetComponent<Containmentscript>().spawnTime;
+           // spawnTime = container.GetComponent<Containmentscript>().spawnTime; // ersetzt durch spawnIntervall
         }
         //print("VersionsNummer: " + VersionNumer);
         switch (VersionNumer)
@@ -157,7 +158,7 @@ public class Knotenspawn : MonoBehaviour
                         cam.orthographic = true;
                         if (Time.time > spawnTime)
                         {
-                            spawnTime = Time.time + 1 + spawnIntervall;
+                            spawnTime = Time.time + 2 + spawnIntervall;
                             if (totalAmountPlacedNodes % spawnSpeed == 0)
                             {
                                 spawnIntervall *= Random.Range(0.95f, 0.99f);
@@ -187,11 +188,36 @@ public class Knotenspawn : MonoBehaviour
                     break;
 
                 case 2:  //Lukas
-                    timeCounter += Time.deltaTime; // 0.02
-                                                   //Spawn immer nach spawntime ausführen
-
+                    
+                    if(running)
+                    {
+                        cam.orthographic = true;
+                        if (Time.time > spawnTime)
+                        {
+                            spawnTime = Time.time + 2 + spawnIntervall;
+                            if (totalAmountPlacedNodes % spawnSpeed == 0)
+                            {
+                                spawnIntervall *= Random.Range(0.95f, 0.99f);
+                            }
+                            if (totalAmountPlacedNodes < 3)
+                            {
+                                Spawn(100);
+                            }
+                            else
+                            {
+                                Spawn(density);
+                            }
+                        }
+                    }
+                    /*  Ich hab deine If anweisung durch meine Ersetzt um ein bisschen einheitlichkeit zu schaffen.
+                     *  im Prinziep ist mein spawnIntervall dein spawntime,
+                     *  nur ist spawntime konstant während spawnIntervall mit der Zeit kleiner wird
+                     * 
                     if (running)
                     {
+                        timeCounter += Time.deltaTime; // 0.02
+                                                       //Spawn immer nach spawntime ausführen
+
                         if ((int)(timeCounter) != 0 && ((int)(timeCounter)) % spawnTime == 0)
                         {
                             Spawn(density);
@@ -199,12 +225,12 @@ public class Knotenspawn : MonoBehaviour
                             //InvokeRepeating("Spawn", spawnTime, spawnTime);
                         }
                     }
+                    */
                     else
                     {
                         GameObject.FindGameObjectWithTag("GameOverPannel").GetComponent<EndPanelScript>().endGame();
                     }
-
-                    cam.orthographic = true;
+                    
                     break;
 
                 default:
@@ -218,7 +244,7 @@ public class Knotenspawn : MonoBehaviour
     {
         running = stop;
 
-        container.GetComponent<Containmentscript>().gameOverText[0] = (GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>().Money).ToString();
+        container.GetComponent<Containmentscript>().gameOverText[0] = (GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyScript>().earnedMoney).ToString();
         container.GetComponent<Containmentscript>().gameOverText[1] = (GameObject.FindGameObjectWithTag("HighScore").GetComponent<SetHighScore>().score).ToString();
         container.GetComponent<Containmentscript>().gameOverText[2] = (totalAmountPlacedNodes).ToString();
 
@@ -236,7 +262,11 @@ public class Knotenspawn : MonoBehaviour
         string PTs = (PlayTime % 60).ToString() + " s";
         string PTm = ((PlayTime / 60) % 60).ToString() + " min ";
         container.GetComponent<Containmentscript>().gameOverText[4] = PTm + PTs;
-        
+
+        container.GetComponent<Containmentscript>().gameOverText[5] = (GameObject.FindGameObjectWithTag("HighScore").GetComponent<SetHighScore>().score / (1000 -
+                                                                        container.GetComponent<Containmentscript>().hardMoneyIncrease)).ToString() +"$";
+        container.GetComponent<Containmentscript>().hardMoney += (int) (GameObject.FindGameObjectWithTag("HighScore").GetComponent<SetHighScore>().score / (1000 -
+                                                                        container.GetComponent<Containmentscript>().hardMoneyIncrease));
         GameObject.FindGameObjectWithTag("GameOverPannel").GetComponentInChildren<GameOverStats>().setStatText();
     }
 

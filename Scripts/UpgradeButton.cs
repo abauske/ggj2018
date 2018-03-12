@@ -60,6 +60,7 @@ public class UpgradeButton : MonoBehaviour {
             c[1].text = Lv[pos - 1] + "/" + maxLv;
         }
         GameObject.FindGameObjectWithTag("ExplainText").GetComponent<Text>().text = "";
+        Lv = container.GetComponent<Containmentscript>().Lv;
     }
 
     private void setPrice()
@@ -461,7 +462,17 @@ public class UpgradeButton : MonoBehaviour {
                 break;
 
             case 10:
-                explainText += "Spawn Nodes faster.\n";
+                explainText += "Spawn Nodes slower.\n";
+                if((Lv[pos-1]+1) % 3 == 0 && Lv[pos-1] != 10)
+                {
+                    explainText += "After each " + (container.GetComponent<Containmentscript>().NodeSpawnSpeed + 1).ToString() 
+                       + " Nodes will the spawn Speed increased.\n" ;
+                }
+                else
+                {
+                    explainText += "";
+                }
+                explainText += "The Time between two spawned Nodes will be increased."; //by 0.4
                 break;
             case 11:
                 explainText += "Spawn Data faster. \n";
@@ -482,9 +493,21 @@ public class UpgradeButton : MonoBehaviour {
                 }
                 break;
 
-            case 13:
+            case 13:    //More Hard Money as Reward
                 explainText += "Gain more $$$.\n";
+                switch(Lv[pos-1])
+                {
+                    case 10:
+                        explainText += "Total decreased Requirement for $: "
+                            + (container.GetComponent<Containmentscript>().hardMoneyIncrease).ToString() + " Scorepoints";
+                        break;
+                    default:
+                        explainText += "Decrease requirement for $ by 10 Scorepoints. Current Decreasement: "
+                            + (container.GetComponent<Containmentscript>().hardMoneyIncrease).ToString() + " Scorepoints"; 
+                        break;
+                }
                 break;
+
             case 19:
                 break;
             default:

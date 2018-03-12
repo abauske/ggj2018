@@ -6,7 +6,7 @@ using UnityEngine;
 public class CircleSynapse : Synapse {
 
 
-    private float defaultSpeed = 8;
+    private float defaultSpeed = 6;
 
     public Shape transferable = Shape.CIRCLE;
 

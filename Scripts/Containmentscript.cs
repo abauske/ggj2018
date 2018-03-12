@@ -13,9 +13,10 @@ public class Containmentscript : MonoBehaviour
     //global
     public int gameVersion;     //1-2
     public int DataSpawnSpeed;
-    public int NodeSpawnSpeed;
+    public int NodeSpawnSpeed;      // nach jedem NodeSpawnSpeed-ten Node werden die Zeitabstände zw den Spawnzeitpunkte(SpawnIntervall) zweier Knoten verkürzt
     public int maxDataPerNode;      //Startwert: 8, je größer desto besser
-    
+    public float spawnIntervall;    //zeitlicher Abstand der Knotenspawns  //beliebiger Wert grösser Null
+
     //Filip - GameVersion 1 
     public int nEck;            //3-7
     public int density;       //1 - 99, je größer, desto dichter die Nodes
@@ -28,21 +29,22 @@ public class Containmentscript : MonoBehaviour
                                // je näher an 1 desto enger spawnen die Knoten
     public float minDistance; // minimaler Abstand der Knoten zueinander
                               // 1.4 bis 3
-    public float spawnTime; //zeitlicher Abstand der Knotenspawns
-                                //beliebiger Wert grösser Null
+    //public float spawnTime;  // ersetzt durch spawnIntervall
+                               
     
 
     //Upgrade Variablen
     public int[] Lv = new int[22];
 
     //public int nEck;              wird oben verwendet
+    //public float spawnIntervall;
     //public int NodeSpawnSpeed;
     //public int DataSpawnSpeed;
     //public int maxDataPerNode;
     //public float density;           wird oben Verwendet
     //public int SynapseSpeed;      nur ein UpgradeButton für alle Synapsen, oder je Synapse ein Upgrade button???
     public int StartMoney;
-    public float hardMoneyIncrease;
+    public int hardMoneyIncrease = 10;
     public float speedCircleMult = 1;
     public float speedSquareMult = 1;
     public float speedTriangleMult = 1;

@@ -5,7 +5,7 @@ using UnityEngine;
 //Filip
 public class SqareSynapse : Synapse {
 
-    private float defaultSpeed = 8;
+    private float defaultSpeed = 6;
 
     public Shape transferable = Shape.SQUARE;
 
