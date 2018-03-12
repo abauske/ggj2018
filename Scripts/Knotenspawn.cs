@@ -61,10 +61,12 @@ public class Knotenspawn : MonoBehaviour
         if (container == null)
         {
             VersionNumer = 1;
+            //Filip
             EckNodeAmount = 3;
             density = 50;
             spawnSpeed = 2;
             distance = 2f;
+            //Lukas
             increasment = 1.1f;
             spawnTime = 8f;
             minDistance = 1.5f;
@@ -72,15 +74,15 @@ public class Knotenspawn : MonoBehaviour
         else
         {
             VersionNumer = container.GetComponent<Containmentscript>().gameVersion;
+            //Filip
             EckNodeAmount = container.GetComponent<Containmentscript>().nEck;
             density = container.GetComponent<Containmentscript>().density;
             spawnSpeed = container.GetComponent<Containmentscript>().NodeSpawnSpeed;
             distance = container.GetComponent<Containmentscript>().distance;
+            //Lukas
             increasment = container.GetComponent<Containmentscript>().increasement;
             minDistance = container.GetComponent<Containmentscript>().minDistance;
             spawnTime = container.GetComponent<Containmentscript>().spawnTime;
-
-
         }
         //print("VersionsNummer: " + VersionNumer);
         switch (VersionNumer)
@@ -196,13 +198,10 @@ public class Knotenspawn : MonoBehaviour
                             timeCounter = 0;
                             //InvokeRepeating("Spawn", spawnTime, spawnTime);
                         }
-
                     }
                     else
                     {
-                     
                         GameObject.FindGameObjectWithTag("GameOverPannel").GetComponent<EndPanelScript>().endGame();
-                        
                     }
 
                     cam.orthographic = true;
@@ -211,12 +210,11 @@ public class Knotenspawn : MonoBehaviour
                 default:
                     VersionNumer = 1;
                     break;
-
             }
         }
     }
 
-    public void stopGame(bool stop)
+    public void stopGame(bool stop) //Filip +Lukas
     {
         running = stop;
 
@@ -238,9 +236,7 @@ public class Knotenspawn : MonoBehaviour
         string PTs = (PlayTime % 60).ToString() + " s";
         string PTm = ((PlayTime / 60) % 60).ToString() + " min ";
         container.GetComponent<Containmentscript>().gameOverText[4] = PTm + PTs;
-
-
-
+        
         GameObject.FindGameObjectWithTag("GameOverPannel").GetComponentInChildren<GameOverStats>().setStatText();
     }
 
@@ -279,7 +275,6 @@ public class Knotenspawn : MonoBehaviour
 
             Vector3 sideVector = zielNode - startNode;
             //double laengeSideNode = System.Math.Sqrt( System.Math.Abs( sideVector.x * sideVector.x + sideVector.y * sideVector.y + sideVector.z * sideVector.z) );
-
             //double directionLaenge = System.Math.Sqrt( System.Math.Abs( direction[0].x * direction[0].x + direction[0].y * direction[0].y + direction[0].z * direction[0].z) );
 
             sideCounterMax = (int)(sideVector.magnitude / direction[1].magnitude);
@@ -303,7 +298,6 @@ public class Knotenspawn : MonoBehaviour
             {
                 return;
             }
-            
         }
 
         if (maxDistance == 0)

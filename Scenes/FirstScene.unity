@@ -302,7 +302,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  hardMoney: 50
+  hardMoney: 1000
   gameVersion: 2
   DataSpawnSpeed: 10
   NodeSpawnSpeed: 1

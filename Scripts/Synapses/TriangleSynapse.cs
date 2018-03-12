@@ -18,7 +18,7 @@ public class TriangleSynapse : Synapse {
         {
             return true;
         }
-        Debug.Log("We have to wait: " + (Time.time - lastTransmissionStart - duration));
+        //Debug.Log("We have to wait: " + (Time.time - lastTransmissionStart - duration));
         return false;
     }
 

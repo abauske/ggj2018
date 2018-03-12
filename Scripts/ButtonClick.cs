@@ -10,7 +10,13 @@ public class ButtonClick : MonoBehaviour
     private static SynapseButton selected = SynapseButton.DEFAULT;
     public SynapseButton button;
     public Image selecor;
+    private SynapseSelection syn;
 
+    public void Start()
+    {
+        syn = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SynapseSelection>();
+
+    }
     void FixedUpdate()
     {
         //print(selected);
@@ -29,26 +35,31 @@ public class ButtonClick : MonoBehaviour
     {
         print("set default");
         selected = SynapseButton.DEFAULT;
+        syn.setDefaultSyn();
     }
     public void setFastSyn()
     {
         print("set FAST");
         selected = SynapseButton.FAST;
+        syn.setFastSyn();
     }
     public void setTriangleSyn()
     {
         print("set TRIANGLE");
         selected = SynapseButton.TRIANGLE;
+        syn.setTriangleSyn();
     }
     public void setCircleSyn()
     {
         print("set CIRCLE");
         selected = SynapseButton.CIRCLE;
+        syn.setCircleSyn();
     }
     public void setSquareSyn()
     {
         print("set SQUARE");
         selected = SynapseButton.SQUARE;
+        syn.setSquareSyn();
     }
 }
 

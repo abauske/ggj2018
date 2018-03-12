@@ -30,18 +30,33 @@ public class BuyButton : MonoBehaviour {
             switch(selectedButton.pos)
             {
                 case 1: //speed Mult. Default
+                    print("speedNormal");
+                    container.speedDafaultMult += 0.1f;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 case 2: //speed Mult. circle
+                    print("speedCircle");
+                    container.speedCircleMult += 0.1f;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 case 3: //speed Mult. square
+                    print("speedSquare");
+                    container.speedSquareMult += 0.1f;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 case 4: //speed Mult. Triangle
+                    print("speedTriangle");
+                    container.speedTriangleMult += 0.1f;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 case 5: //speed Mult. Fast
+                    print("speedFast");
+                    container.speedFastMult += 0.1f;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 case 6:
@@ -91,7 +106,9 @@ public class BuyButton : MonoBehaviour {
                 case 11: //DataSpawnSpeed
                     break;
 
-                case 12: //More Money in Game
+                case 12: //More Money in Game Start
+                    container.StartMoney += 5;
+                    container.Lv[(selectedButton.pos - 1)] += 1;
                     break;
 
                 case 13: //More Hard Money in Updates
