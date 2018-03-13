@@ -63,8 +63,10 @@ public class GraphSearch : IGraphSearch
             return null;
         }
         path = closestNextNode.shortestPath(shape, reachable);
-        if (path == null) return null;
-        path.Insert(0, this);
+        if (path != null && path[0].Predecessor == this)
+        {
+            path.Insert(0, this);
+        }
         return path;
     }
 

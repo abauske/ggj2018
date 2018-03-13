@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -43,7 +44,7 @@ public class NodeDataSpawner : Node {
     /*
      * -Falls die Menge an der zu haltenden Daten ueberschritten wird, dann ist Game Over
      */
-    void Update()
+    void FixedUpdate()
     {
         if (!pause)
         {
